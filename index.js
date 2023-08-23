@@ -684,3 +684,29 @@
 // 네모.draw();
 // 네모.draw();
 // 네모.draw();
+// import { Age, Car, Name, ObjFunction } from "./types";
+// // 개념
+// const name: Name = `park`;
+// const age: Age = a => a + 10;
+// // 실습 1
+// const car: Car = { wheel: 4, model: `Sonata` };
+// // 실습 2
+// const 함수: ObjFunction = function (a) {
+//   console.log(a);
+// };
+// 함수({ abc: '안뇽' });
+System.register("types", [], function (exports_1, context_1) {
+    "use strict";
+    var BadDog, dog1, dog2;
+    var __moduleName = context_1 && context_1.id;
+    return {
+        setters: [],
+        execute: function () {
+            (function (BadDog) {
+                ;
+            })(BadDog || (BadDog = {}));
+            dog1 = 'bark';
+            dog2 = { name: 'paw' };
+        }
+    };
+});
