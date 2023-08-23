@@ -47,7 +47,7 @@
 // // img
 // let 이미지 = document.querySelector(`img`);
 // if (이미지 instanceof HTMLImageElement) {
-//   이미지.src = `change.jpg`;
+//   이미지.src = `change.png`;
 // }
 
 // // 링크 한 번에 변경
