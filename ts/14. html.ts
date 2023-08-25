@@ -27,7 +27,7 @@
 // if (링크 instanceof HTMLAnchorElement) {
 //   링크.href = `https://kakao.com`;
 // }
-// /** 
+// /**
 //   HTMLAnchorElement
 //   - href, style, class, id
 //   HTMLButtonElement

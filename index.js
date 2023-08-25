@@ -114,9 +114,9 @@
 // console.log(결혼가능하냐(100, true, '상'));
 // /**
 //   하지만 월 소득을 마이너스로 이상한 숫자를 입력하면 어쩌죠?
-//   그런 것도 막으려면 코드를 어떻게 짜야할까요. 
+//   그런 것도 막으려면 코드를 어떻게 짜야할까요.
 //   마지막으로 string이 아니라 '상' '중' '하' 라는 글자만 입력할 수 있게 더욱 엄격한 타입지정도 가능한데
-//   그건 Literal type 시간에 알아봅시다. 
+//   그건 Literal type 시간에 알아봅시다.
 //  */
 // /** ?는 number | undefined와 같음 */
 // // function
@@ -330,7 +330,7 @@
 // if (링크 instanceof HTMLAnchorElement) {
 //   링크.href = `https://kakao.com`;
 // }
-// /** 
+// /**
 //   HTMLAnchorElement
 //   - href, style, class, id
 //   HTMLButtonElement
@@ -545,7 +545,7 @@
 //  * 조건
 //  * 1. return 값이 없어야 함
 //  * 2. endpoint가 없어야 함 (1번 충족)
-//  * 
+//  *
 //  * 실제로는
 //  * - 쓸데 없음
 //  * - void 쓰셈
@@ -612,7 +612,7 @@
 // }
 // let 자식 = new User();
 // console.log(자식);  // User { y: 20 }
-// /** 
+// /**
 //  *  추가
 //  *  - 함수도 static 붙이기 가능
 //  *  - extends로 class를 복사할 경우 static 붙은 것들도 따라옴
@@ -634,17 +634,17 @@
 //   public static y = 20;
 //   protected z = 30;
 // }
-// /** 
+// /**
 //  *   x,y 속성의 특징
 //  *   1. 필드값은 원래는 모든 User의 자식들에게 물려주는 속성이지만
 //  *      x와 y에는 static 키워드가 붙었기 때문에 User.x 이런 식으로만
 //  *      접근해서 쓸 수 있습니다. User의 자식들은 x와 y를 쓸 수 없습니다.
 //  *   2. private static x는 class 내부에서만 수정가능합니다.
 //  *   3. public static y는 class 내부 외부 상관없이 수정가능합니다.
-//  *      public 키워드 지워도 똑같이 동작할 듯 
+//  *      public 키워드 지워도 똑같이 동작할 듯
 //  *   4. protected z는 private 키워드와 유사하게 class 내부에서만
 //  *      사용이 가능한데 약간 범위가 넓어서 extends로 복사한 class 내부에서도
-//  *      사용할 수 있습니다. 
+//  *      사용할 수 있습니다.
 //  */
 // // 2
 // class User4 {
@@ -669,10 +669,10 @@
 //     let square = `
 //       <div style="
 //         position: relative;
-//         top: ${a * 400}px; 
-//         left: ${a * 400}px; 
-//         width: ${this.width}px; 
-//         height: ${this.height}px; 
+//         top: ${a * 400}px;
+//         left: ${a * 400}px;
+//         width: ${this.width}px;
+//         height: ${this.height}px;
 //         background:${this.color}">
 //       </div>
 //     `;
