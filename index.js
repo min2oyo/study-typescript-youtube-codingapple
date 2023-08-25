@@ -786,6 +786,13 @@
 // //   type Dog = string;
 // // }
 // // export { }
+class Car2 {
+    constructor(a) {
+        this.price = 1000;
+        this.model = a;
+    }
+}
+let 붕붕이 = new Car2('morning');
 /** 전역 사용으로 export 생략 가능 */
 var BadDog;
 (function (BadDog) {
