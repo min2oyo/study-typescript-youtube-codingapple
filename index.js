@@ -684,9 +684,9 @@
 // 네모.draw();
 // 네모.draw();
 // 네모.draw();
-// import { Age, Car, Name, ObjFunction } from "./types";
+// // import { Age, Car, Name, ObjFunction } from "./types"; // 전역 사용으로 import 생략 가능
 // // 개념
-// const name: Name = `park`;
+// const name2: Name = `park`;
 // const age: Age = a => a + 10;
 // // 실습 1
 // const car: Car = { wheel: 4, model: `Sonata` };
@@ -695,18 +695,101 @@
 //   console.log(a);
 // };
 // 함수({ abc: '안뇽' });
-System.register("types", [], function (exports_1, context_1) {
-    "use strict";
-    var BadDog, dog1, dog2;
-    var __moduleName = context_1 && context_1.id;
-    return {
-        setters: [],
-        execute: function () {
-            (function (BadDog) {
-                ;
-            })(BadDog || (BadDog = {}));
-            dog1 = 'bark';
-            dog2 = { name: 'paw' };
-        }
-    };
-});
+// /** 개념 */
+// // generic
+// function 함수<T>(x: T[]) {  // 2개 이상 넣을 수도 있음
+//   return x[0];
+// }
+// let a = 함수<number>([4, 2]);
+// let b = 함수([`4`, `2`]); // Type 자동 설정
+// // constraints
+// function 함수2<T extends number>(x: T) {
+//   return x - 1;
+// }
+// let c = 함수2<number>(100);
+// // custom type
+// interface LengthCheck {
+//   length: number;
+// }
+// function 함수3<T extends LengthCheck>(x: T) {
+//   return x.length;
+// }
+// let d = 함수3<string>(`100`);
+// let e = 함수3<string[]>([`100`]);
+// // class
+// class Hi<T> { }
+// // type
+// type Age<T> = T;
+// /** 실습 */
+// // 갯수 구하기
+// function 함수4<T extends string | string[]>(x: T) {
+//   console.log(x.length);
+// }
+// 함수4<string>('hello');
+// 함수4<string[]>(['kim', 'park']);
+// // 동물
+// interface Animal {
+//   name: string;
+//   age: number;
+// }
+// let data = '{"name" : "dog", "age" : 1 }';
+// function 함수5<T>(data: string): T {
+//   return JSON.parse(data);
+// }
+// console.log(함수5<Animal>(data));
+// // class
+// class Person<T> {
+//   name;
+//   constructor(a: T) {
+//     this.name = a;
+//   }
+// }
+// let f = new Person<string>('어쩌구');
+// f.name;
+// /** 개념 */
+// // 변수
+// let 멍멍: [string, boolean?, number?] = [`dog`, true];  // ?는 뒤에서 부터 채움
+// // 함수
+// function 함수(...x: [number, string]) {
+//   return x;
+// }
+// console.log(함수(111, `222`));
+// // 배열
+// let arr = [1, 2, 3];
+// let arr2: [number, number, ...number[]] = [4, 5, ...arr];
+// /** 실습 */
+// // 1
+// type Arr = [string, number, ...boolean[]];
+// let arr3: Arr = ['동서녹차', 4000, true, false, true, true, false, true];
+// // 2
+// function 함수2(...rest: [string, boolean, ...(number | string)[]]) {
+// }
+// 함수2('a', true, 6, 3, '1', 4);
+// // 3
+// function 함수3(...rest: (string | number)[]) {
+//   let result: [string[], number[]] = [[], []];
+//   rest.forEach((a) => {
+//     if (typeof a === 'string') {
+//       result[0].push(a);
+//     } else {
+//       result[1].push(a);
+//     }
+//   });
+//   return result;
+// }
+// console.log(함수3('b', 5, 6, 8, 'a'));
+// /** 개념 */
+// declare const data_a: number; // data.js에 있는 변수  // tsconfig.json의 allowJs를 키면 declare안 써도 된다는데, 그래도 어떤 다른 오류남
+// console.log(data_a);
+// /** 로컬 모듈을 글로벌 하게 쓰고 싶을 때 사용 */
+// // declare global {
+// //   type Dog = string;
+// // }
+// // export { }
+/** 전역 사용으로 export 생략 가능 */
+var BadDog;
+(function (BadDog) {
+    ;
+})(BadDog || (BadDog = {}));
+const dog1 = 'bark';
+const dog2 = { name: 'paw' };
