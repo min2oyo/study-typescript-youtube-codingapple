@@ -786,13 +786,74 @@
 // //   type Dog = string;
 // // }
 // // export { }
-class Car2 {
-    constructor(a) {
-        this.price = 1000;
-        this.model = a;
-    }
-}
-let 붕붕이 = new Car2('morning');
+// interface CarType {
+//   model: string,
+//   price: number;
+//   // color: string,
+//   // tax: (price: number) => number;
+// }
+// class Car2 implements CarType { // interface에 들어있는 속성을 가지고 있는지 확인만하라는 뜻
+//   model: string;
+//   price: number = 1000;
+//   constructor(a: string) {
+//     this.model = a;
+//   }
+//   // color;  // any type
+//   // tax(a) {   ///a 파라미터는 any 타입됨 
+//   //   return a * 0.1;
+//   // }
+// }
+// let 붕붕이 = new Car2('morning');
+// /** 개념 */
+// // index signatures
+// interface StringOnly {
+//   [key: string]: string | number,
+//   age: number,
+// }
+// let user: StringOnly = {
+//   name: `kim`,
+//   age: 20,
+//   location: `seoul`
+// };
+// // Recursive Index Signatures
+// interface MyType {
+//   'font-size': MyType | number;
+// }
+// let css: MyType = {
+//   'font-size': {
+//     'font-size': {
+//       'font-size': 14
+//     }
+//   }
+// };
+// /** 실습 */
+// // 1
+// type Car2 = {
+//   [key: string]: number | string;
+// };
+// let obj: Car2 = {
+//   model: 'k5',
+//   brand: 'kia',
+//   price: 6000,
+//   year: 2030,
+//   date: '6월',
+//   percent: '5%',
+//   dealer: '김차장',
+// };
+// // 2
+// interface MyType2 {
+//   [key: string]: number | MyType2,
+//   'font-size': number,
+// }
+// let obj2: MyType2 = {
+//   'font-size': 10,
+//   'secondary': {
+//     'font-size': 12,
+//     'third': {
+//       'font-size': 14
+//     }
+//   }
+// };
 /** 전역 사용으로 export 생략 가능 */
 var BadDog;
 (function (BadDog) {
