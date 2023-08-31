@@ -1,41 +1,35 @@
 "use strict";
-// /** Primitive Types */
-// // Varable
-// let 이름: string = `kim`; // string, number, boolean, bigint, null, undefined,[], {} 등
-// // Array
-// let 이름2: string[] = [`kim`, `park`];
-// // Object
-// let 이름3: { name?: string; } = { name: `kim` };  // ?는 옵션
-// // Union
-// let 이름4: string | number = `kim`;
-// // Type
-// type Name = string | number;  // type 변수명은 주로 대문자 사용
-// let 이름5: Name = 123;
-// // literal type
-// type NameType = `kim` | `park`;
-// let 이름6: NameType = `kim`;
-// // Function
-// function 함수(x: number): number {
-//   return x * 2;
-// }
-// function 함수2(x: number | string) {
-//   if (typeof x === 'number') {  // 항상 타입이 무엇인지 미리 체크하는 narrowing 또는 assertion 문법을 사용
-//     return x * 2;
-//   }
-// }
-// // Tuple Type
-// type Member = [number, boolean];
-// let john: Member = [123, true];
-// // Index Signature
-// type Member2 = { [key: string]: string; };
-// let john2: Member2 = { name: `kim`, age: `123` };
-// // Class
-// class User {
-//   name: string;
-//   constructor(name: string) {
-//     this.name = name;
-//   }
-// }
+const index = () => {
+    /** Primitive Types */
+    // Varable
+    let 이름 = `kim`; // string, number, boolean, bigint, null, undefined,[], {} 등
+    // Array
+    let 이름2 = [`kim`, `park`];
+    // Object
+    let 이름3 = { name: `kim` }; // ?는 옵션
+    // Union
+    let 이름4 = `kim`;
+    let 이름5 = 123;
+    let 이름6 = `kim`;
+    // Function
+    function 함수(x) {
+        return x * 2;
+    }
+    function 함수2(x) {
+        if (typeof x === 'number') { // 항상 타입이 무엇인지 미리 체크하는 narrowing 또는 assertion 문법을 사용
+            return x * 2;
+        }
+    }
+    let john = [123, true];
+    let john2 = { name: `kim`, age: `123` };
+    // Class
+    class User {
+        constructor(name) {
+            this.name = name;
+        }
+    }
+    ;
+};
 // // Type은 알아서 지정해주므로, 고수는 type 지정을 안 함
 // let 이름: string = `kim`;
 // let 나이: number = 50;
@@ -190,15 +184,14 @@
 //   return JSON.parse(data) as T;
 // }
 // const jake = 변환기<Person>('{"name":"kim"}');
-// type Animal = string | number | undefined;
-// let 동물: Animal = 123;
-// type 사람 = { name: string, age: number; };
-// let teacher: 사람 = { name: `kim`, age: 20 };
-// type User = { name: string, email?: string, phone: number; };
-// let 회원가입정보: User = {
-//   name: 'kim',
-//   phone: 123,
-// };
+const type_alias = () => {
+    let 동물 = 123;
+    let teacher = { name: `kim`, age: 20 };
+    let 회원가입정보 = {
+        name: 'kim',
+        phone: 123,
+    };
+};
 // // 1
 // type Girlfriend = {
 //   readonly name: string;
@@ -854,6 +847,32 @@
 //     }
 //   }
 // };
+const keyof = () => {
+    /** 개념 */
+    // key 조회
+    let obj = { name: `kim`, age: 20 };
+    console.log(Object.keys(obj));
+    let a = `name`;
+    let a2 = `name`;
+    let a3 = `name2`;
+    let a4 = 1;
+    let obj2 = {
+        color: 'red',
+        model: 'kia',
+        price: '300',
+    };
+};
+keyof();
+const infer = () => {
+    /** 개념 */
+    let a; // string
+    let a2; // unknown
+    let age1; // string
+    let age2; // any
+    let age3; // string
+    let age4; // unknown
+};
+infer();
 /** 전역 사용으로 export 생략 가능 */
 var BadDog;
 (function (BadDog) {
