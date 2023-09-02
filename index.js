@@ -9,13 +9,13 @@ const _index = () => {
     const object = { name: `kim` }; // ?는 옵션
     // Union
     const union = `kim`;
-    const 이름5 = 123;
-    const 이름6 = `kim`;
+    const word = 123;
+    const who = `kim`;
     // Function
-    function 함수(x) {
+    function num(x) {
         return x * 2;
     }
-    function 함수2(x) {
+    function num2(x) {
         if (typeof x === 'number') { // 항상 타입이 무엇인지 미리 체크하는 narrowing 또는 assertion 문법을 사용
             return x * 2;
         }
@@ -29,6 +29,18 @@ const _index = () => {
         }
     }
     ;
+    /** light */
+    varable;
+    array;
+    object;
+    union;
+    word;
+    who;
+    num;
+    num2;
+    john;
+    john2;
+    User;
 };
 _index();
 const _primitive_types = () => {
@@ -41,7 +53,7 @@ const _primitive_types = () => {
     const isMarried3 = undefined;
     const members1 = [`kim`, `park`];
     const members2 = { membr1: `kim`, member2: `park` };
-    // light
+    /** light */
     name;
     age;
     isMarried1;
