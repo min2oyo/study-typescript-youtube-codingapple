@@ -1,4 +1,4 @@
-const keyof = () => {
+const _keyof = () => {
 
   /** 개념 */
   // key 조회
@@ -64,4 +64,4 @@ const keyof = () => {
 
 };
 
-keyof();
+_keyof();

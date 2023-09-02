@@ -1,4 +1,4 @@
-const type_alias = () => {
+const _type_alias = () => {
 
   type Animal = string | number | undefined;
   let 동물: Animal = 123;
@@ -13,3 +13,5 @@ const type_alias = () => {
   };
 
 };
+
+_type_alias();

@@ -1,22 +1,28 @@
-// // 1
-// type Girlfriend = {
-//   readonly name: string;
-// };
+const _readonly = () => {
 
-// const 여친: Girlfriend = {
-//   name: `수정`
-// };
+  // 1
+  type Girlfriend = {
+    readonly name: string;
+  };
 
-// // 여친.name = `유라`; // error
+  const 여친: Girlfriend = {
+    name: `수정`
+  };
 
-// // 2
-// type MyType = {
-//   color?: string,
-//   size: number,
-//   readonly position: number[];
-// };
+  // 여친.name = `유라`; // error
 
-// let 테스트용변수: MyType = {
-//   size: 123,
-//   position: [1, 2, 3]
-// };
+  // 2
+  type MyType = {
+    color?: string,
+    size: number,
+    readonly position: number[];
+  };
+
+  let 테스트용변수: MyType = {
+    size: 123,
+    position: [1, 2, 3]
+  };
+
+};
+
+_readonly();

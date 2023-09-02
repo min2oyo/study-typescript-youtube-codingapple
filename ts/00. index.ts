@@ -1,25 +1,25 @@
-const index = () => {
+const _index = () => {
 
   /** Primitive Types */
   // Varable
-  let 이름: string = `kim`; // string, number, boolean, bigint, null, undefined,[], {} 등
+  const varable: string = `kim`; // string, number, boolean, bigint, null, undefined,[], {} 등
 
   // Array
-  let 이름2: string[] = [`kim`, `park`];
+  const array: string[] = [`kim`, `park`];
 
   // Object
-  let 이름3: { name?: string; } = { name: `kim` };  // ?는 옵션
+  const object: { name?: string; } = { name: `kim` };  // ?는 옵션
 
   // Union
-  let 이름4: string | number = `kim`;
+  const union: string | number = `kim`;
 
   // Type
   type Name = string | number;  // type 변수명은 주로 대문자 사용
-  let 이름5: Name = 123;
+  const 이름5: Name = 123;
 
   // literal type
   type NameType = `kim` | `park`;
-  let 이름6: NameType = `kim`;
+  const 이름6: NameType = `kim`;
 
   // Function
   function 함수(x: number): number {
@@ -34,11 +34,11 @@ const index = () => {
 
   // Tuple Type
   type Member = [number, boolean];
-  let john: Member = [123, true];
+  const john: Member = [123, true];
 
   // Index Signature
   type Member2 = { [key: string]: string; };
-  let john2: Member2 = { name: `kim`, age: `123` };
+  const john2: Member2 = { name: `kim`, age: `123` };
 
   // Class
   class User {
@@ -49,3 +49,5 @@ const index = () => {
   };
 
 };
+
+_index();

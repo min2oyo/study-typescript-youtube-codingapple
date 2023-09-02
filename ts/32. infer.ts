@@ -1,4 +1,4 @@
-const infer = () => {
+const _infer = () => {
 
   /** 개념 */
 
@@ -41,4 +41,4 @@ const infer = () => {
   type a4 = 타입뽑기<(x: string) => void>;  // string
 };
 
-infer();
+_infer();

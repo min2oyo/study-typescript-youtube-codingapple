@@ -1,6 +1,14 @@
-// let 이름: any;
-// 이름 = 123;
-// 이름 = [];
-// console.log(typeof 이름);
+const _any = () => {
 
-// let 변수1: string = 이름;  // error 안 남
+  let age: any;
+  age = 123;
+  age = [];
+  console.log(typeof age);    // object
+
+  const newAge: string = age; // error 안 남
+  console.log(typeof newAge); // object
+  console.log(newAge);        // []
+
+};
+
+_any();

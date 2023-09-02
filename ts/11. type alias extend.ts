@@ -1,24 +1,30 @@
-// // Varable
-// type Name = string;
-// type Age = number;
-// type Person = Name | Age;
+const _type_alias_extend = () => {
 
-// // Object
-// type PositionX = { x: number; };
-// type PositionY = { y: number; };
+  // Varable
+  type Name = string;
+  type Age = number;
+  type Person = Name | Age;
 
-// type NewType = PositionX & PositionY;
+  // Object
+  type PositionX = { x: number; };
+  type PositionY = { y: number; };
 
-// let position: NewType = { x: 10, y: 20 };
+  type NewType = PositionX & PositionY;
 
-// // User
-// type User = { name: string, email?: string, phone: number; };
-// type Adult = { adult: boolean; };
+  let position: NewType = { x: 10, y: 20 };
 
-// type NewUser = User & Adult;
+  // User
+  type User = { name: string, email?: string, phone: number; };
+  type Adult = { adult: boolean; };
 
-// let 회원가입정보: NewUser = {
-//   name: 'kim',
-//   adult: false,
-//   phone: 1234
-// };
+  type NewUser = User & Adult;
+
+  let 회원가입정보: NewUser = {
+    name: 'kim',
+    adult: false,
+    phone: 1234
+  };
+
+};
+
+_type_alias_extend();
