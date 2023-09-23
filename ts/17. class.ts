@@ -1,6 +1,7 @@
 const _class = () => {
+  
+  /** 개념 */
 
-  // 개념
   class Person {
     data = 0;
     name;

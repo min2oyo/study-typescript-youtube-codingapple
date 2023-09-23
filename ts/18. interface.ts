@@ -1,6 +1,7 @@
 const _interface = () => {
 
   /** 개념 */
+  
   // interface
   interface Student {
     name: string;

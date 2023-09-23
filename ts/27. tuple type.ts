@@ -1,6 +1,7 @@
 const _tuple_type = () => {
 
   /** 개념 */
+
   // 변수
   const 멍멍: [string, boolean?, number?] = [`dog`, true];  // ?는 뒤에서 부터 채움
 

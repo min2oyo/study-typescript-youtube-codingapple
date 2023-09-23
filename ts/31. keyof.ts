@@ -1,6 +1,7 @@
 const _keyof = () => {
 
   /** 개념 */
+
   // key 조회
   const obj = { name: `kim`, age: 20 };
   console.log(Object.keys(obj));

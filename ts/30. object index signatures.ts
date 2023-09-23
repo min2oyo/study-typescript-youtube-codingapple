@@ -1,6 +1,7 @@
 const _object_index_signatures = () => {
 
   /** 개념 */
+
   // index signatures
   interface StringOnly {
     [key: string]: string | number,

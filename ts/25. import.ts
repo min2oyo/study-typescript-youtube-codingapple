@@ -2,7 +2,8 @@
 
 const _import = () => {
 
-  // 개념
+  /** 개념 */
+
   const name2: Name = `park`;
   const age: Age = a => a + 10;
 

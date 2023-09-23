@@ -1,5 +1,7 @@
 const _narrowing2 = () => {
 
+  /** 개념 */
+
   // 1. && 연산자
   console.log(1 && null && 3);  // null
   console.log(undefined && '안녕' && 100);  // undefined

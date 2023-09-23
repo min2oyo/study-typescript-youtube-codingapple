@@ -1,6 +1,7 @@
 const _static = () => {
 
-  // 개념 1
+  /** 개념 */
+
   class User {
     private static x = 10;  // 부모 class에 직접 부여됨 // 자식에게 안 물려 줌
     y = 20;

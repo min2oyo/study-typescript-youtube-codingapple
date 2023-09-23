@@ -1,5 +1,7 @@
 const _implements = () => {
 
+  /** 개념 */
+
   interface CarType {
     model: string,
     price: number;

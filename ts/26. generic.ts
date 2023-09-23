@@ -1,6 +1,7 @@
 const _generic = () => {
 
   /** 개념 */
+
   // generic
   function 함수<T>(x: T[]) {  // 2개 이상 넣을 수도 있음
     return x[0];

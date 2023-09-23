@@ -1,6 +1,7 @@
 const _rest_parameter = () => {
 
   /** 개념 */
+  
   // rest parameter
   function 함수(...a: number[]) { // 다른 파라미터 있으면 맨 뒤에만 사용 가능
     return a;
