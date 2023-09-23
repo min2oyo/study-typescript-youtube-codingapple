@@ -364,56 +364,51 @@ const _function_type = () => {
         }
     };
     console.log(user.plusOne(1)); // 2
-    console.log(user.changeName()); // 안녕
+    user.changeName(); // 안녕
     const member = {
         name: `ria`,
         age: 21,
         plusOne: (x) => x,
         changeName: () => { }
     };
-    const cutZero = function (x) {
-        const result = x.replace(/^0+/, ""); // '0' 문자가 있으면 제거
-        return result;
+    const cutZero = x => {
+        return x.replace(/^0+/, ""); // '0' 문자가 있으면 제거
     };
-    function removeDash(x) {
-        const result = x.replace(/-/g, ""); // 대시기호 '-' 가 있으면 전부 제거
-        return parseFloat(result);
-    }
-    ;
-    function makeFunc(a, func1, func2) {
-        const result = func1(a);
-        const result2 = func2(result);
-        console.log(result2);
-    }
-    makeFunc(`010-1111-2222`, cutZero, removeDash); // 1011112222 출력잘됨
+    const removeDash = x => {
+        return parseFloat(x.replace(/-/g, "")); // 대시기호 '-' 가 있으면 전부 제거
+    };
+    const makeFunc = (x, cutZero, removeDash) => {
+        return removeDash(cutZero(x));
+    };
+    console.log(makeFunc(`010-1111-2222`, cutZero, removeDash)); // 1011112222
     /** light */
     member;
 };
 _function_type();
 /** narrowing 5가지 방법 */
 // 1. 일반
-const 제목1 = document.querySelector(`#title`);
-if (제목1 != null) {
-    제목1.innerHTML = `반가워요`;
+const subject1 = document.querySelector(`#title`);
+if (subject1 != null) {
+    subject1.innerHTML += ` 반가워요1`;
 }
 // 2. instanceof (추천)
-const 제목2 = document.querySelector(`#title`);
-if (제목2 instanceof Element) { // Object instanceof Class
-    제목2.innerHTML = `반가워요`;
+const subject2 = document.querySelector(`#title`);
+if (subject2 instanceof Element) { // Object instanceof Class
+    subject2.innerHTML += ` 반가워요2`;
 }
 // 3. assertion
-const 제목3 = document.querySelector(`#title`);
-제목3.innerHTML = `반가워요`;
+const subject3 = document.querySelector(`#title`);
+subject3.innerHTML += ` 반가워요3`;
 // 4. optional chaining
-const 제목4 = document.querySelector(`#title`);
-if ((제목4 === null || 제목4 === void 0 ? void 0 : 제목4.innerHTML) != undefined) {
-    제목4.innerHTML = `반가워요`;
+const subject4 = document.querySelector(`#title`);
+if ((subject4 === null || subject4 === void 0 ? void 0 : subject4.innerHTML) != undefined) {
+    subject4.innerHTML += ` 반가워요4`;
 }
 // 5. strict mode off in tsconfig.json
 // Element 상속
-const 링크 = document.querySelector(`.link`);
-if (링크 instanceof HTMLAnchorElement) {
-    링크.href = `https://kakao.com`;
+const link = document.querySelector(`.link`);
+if (link instanceof HTMLAnchorElement) {
+    link.href = `https://kakao.com`;
 }
 /**
   HTMLAnchorElement
@@ -426,74 +421,77 @@ if (링크 instanceof HTMLAnchorElement) {
   - <img>
  */
 // eventListener
-const 버튼 = document.querySelector(`button`);
-버튼 === null || 버튼 === void 0 ? void 0 : 버튼.addEventListener(`click`, function () {
-    console.log(`안녕`);
+const button = document.querySelector(`button`);
+button === null || button === void 0 ? void 0 : button.addEventListener(`click`, () => {
+    alert(`안녕`);
 });
 // img
-const 이미지 = document.querySelector(`img`);
-if (이미지 instanceof HTMLImageElement) {
-    이미지.src = `change.png`;
+const img = document.querySelector(`img`);
+if (img instanceof HTMLImageElement) {
+    img.src = `/images/change.png`;
 }
-// 링크 한 번에 변경
-const 링크2 = document.querySelectorAll('.naver');
-링크2.forEach((a) => {
-    if (a instanceof HTMLAnchorElement) {
-        a.href = 'https://kakao.com';
+// link 한 번에 변경
+const links = document.querySelectorAll('.naver');
+links.forEach((x) => {
+    if (x instanceof HTMLAnchorElement) {
+        x.href = 'https://kakao.com';
     }
 });
 const _class = () => {
-    // 개념
+    /** 개념 */
     class Person {
         constructor(name, age = 20) {
             this.data = 0;
             this.name = name;
             this.age = age;
         }
-        함수(name) {
+        func(name) {
             return `안녕, ${name}`;
         }
     }
     const kim = new Person(`kim`);
     const park = new Person(`park`);
-    console.log(kim.data);
-    console.log(kim.함수(`jiwan`));
+    console.log(kim.data); // 0
+    console.log(kim.func(`jiwan`)); // 안녕, jiwan
+    console.log(park); // Person { data: 0, name: 'park', age: 20 }
+    /** 실습 */
     // car
     class Car {
-        constructor(a, b) {
-            this.model = a;
-            this.price = b;
+        constructor(x, y) {
+            this.model = x;
+            this.price = y;
         }
         tax() {
             return this.price * 0.1;
         }
     }
-    const car1 = new Car('소나타', 3000);
-    console.log(car1); // Car { model: '소나타', price: 3000 }
-    console.log(car1.tax()); // 300
+    const car = new Car('소나타', 3000);
+    console.log(car); // Car { model: '소나타', price: 3000 }
+    console.log(car.tax()); // 300
     //  class Word
     class Word {
         constructor(...param) {
-            const 숫자들 = [];
-            const 문자들 = [];
-            param.forEach((i) => {
+            const numbers = [];
+            const strings = [];
+            param.forEach(i => {
                 if (typeof i === 'string') {
-                    문자들.push(i);
+                    strings.push(i);
                 }
                 else {
-                    숫자들.push(i);
+                    numbers.push(i);
                 }
             });
-            this.num = 숫자들;
-            this.str = 문자들;
+            this.num = numbers;
+            this.str = strings;
         }
     }
-    const obj = new Word('kim', 3, 5, 'park');
-    console.log(obj.num); // [ 3, 5 ]
-    console.log(obj.str); // [ 'kim', 'park' ]
+    const word = new Word('kim', 3, 5, 'park');
+    console.log(word.num); // [ 3, 5 ]
+    console.log(word.str); // [ 'kim', 'park' ]
 };
 _class();
 const _interface = () => {
+    /** 개념 */
     const 학생 = { name: `kim` };
     const 선생 = { name: `kim`, age: 20 };
     const 상품 = { brand: 'Samsung', serialNumber: 1360, model: ['TV', 'phone'] };
@@ -548,6 +546,7 @@ const _rest_parameter = () => {
 };
 _rest_parameter();
 const _narrowing2 = () => {
+    /** 개념 */
     // 1. && 연산자
     console.log(1 && null && 3); // null
     console.log(undefined && '안녕' && 100); // undefined
@@ -571,17 +570,18 @@ const _narrowing2 = () => {
     }
 };
 _narrowing2();
+/**
+ * 조건
+ * 1. return 값이 없어야 함
+ * 2. endpoint가 없어야 함 (1번 충족)
+ *
+ * 실제로는
+ * - 쓸데 없음
+ * - void 쓰셈
+ * - 코드 이상하게 짤 때 출몰하는 거임
+ */
 const _never = () => {
-    /**
-     * 조건
-     * 1. return 값이 없어야 함
-     * 2. endpoint가 없어야 함 (1번 충족)
-     *
-     * 실제로는
-     * - 쓸데 없음
-     * - void 쓰셈
-     * - 코드 이상하게 짤 때 출몰하는 거임
-     */
+    /** 개념 */
     // error
     function 함수() {
         throw new Error(); // 코드 실행 중단
@@ -607,9 +607,9 @@ const _never = () => {
     };
 };
 _never();
+/** 오리지널 자바스크립트 문법에서도 #이걸 속성옆에 붙이면 private 속성이 됩 */
 const _private = () => {
-    /** 오리지널 자바스크립트 문법에서도 #이걸 속성옆에 붙이면 private 속성이 됩 */
-    // 개념
+    /** 개념 */
     class User {
         constructor(name) {
             this.familyName = `kim`;
@@ -634,7 +634,7 @@ const _private = () => {
 };
 _private();
 const _protected = () => {
-    // 개념
+    /** 개념 */
     class User {
         constructor() {
             this.x = 10; // private 기능에서 extends된 class에서도 사용 가능
@@ -650,7 +650,7 @@ const _protected = () => {
 };
 _protected();
 const _static = () => {
-    // 개념 1
+    /** 개념 */
     class User {
         constructor() {
             this.y = 20;
@@ -742,7 +742,7 @@ const _static = () => {
 _static();
 // import { Age, Car, Name, ObjFunction } from "./types"; // 전역 사용으로 import 생략 가능
 const _import = () => {
-    // 개념
+    /** 개념 */
     const name2 = `park`;
     const age = a => a + 10;
     // 실습 1
@@ -840,6 +840,7 @@ const _declare = () => {
 };
 _declare;
 const _implements = () => {
+    /** 개념 */
     class Car2 {
         constructor(a) {
             this.price = 1000;
@@ -850,6 +851,7 @@ const _implements = () => {
 };
 _implements();
 const _object_index_signatures = () => {
+    /** 개념 */
     const user = {
         name: `kim`,
         age: 20,

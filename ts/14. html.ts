@@ -1,31 +1,33 @@
 /** narrowing 5가지 방법 */
+
 // 1. 일반
-const 제목1 = document.querySelector(`#title`);
-if (제목1 != null) {
-  제목1.innerHTML = `반가워요`;
+const subject1 = document.querySelector(`#title`);
+if (subject1 != null) {
+  subject1.innerHTML += ` 반가워요1`;
 }
+
 // 2. instanceof (추천)
-const 제목2 = document.querySelector(`#title`);
-if (제목2 instanceof Element) {  // Object instanceof Class
-  제목2.innerHTML = `반가워요`;
+const subject2 = document.querySelector(`#title`);
+if (subject2 instanceof Element) {  // Object instanceof Class
+  subject2.innerHTML += ` 반가워요2`;
 }
 
 // 3. assertion
-const 제목3 = document.querySelector(`#title`) as Element;
-제목3.innerHTML = `반가워요`;
+const subject3 = document.querySelector(`#title`) as Element;
+subject3.innerHTML += ` 반가워요3`;
 
 // 4. optional chaining
-const 제목4 = document.querySelector(`#title`);
-if (제목4?.innerHTML != undefined) {
-  제목4.innerHTML = `반가워요`;
+const subject4 = document.querySelector(`#title`);
+if (subject4?.innerHTML != undefined) {
+  subject4.innerHTML += ` 반가워요4`;
 }
 
 // 5. strict mode off in tsconfig.json
 
 // Element 상속
-const 링크 = document.querySelector(`.link`);
-if (링크 instanceof HTMLAnchorElement) {
-  링크.href = `https://kakao.com`;
+const link = document.querySelector(`.link`);
+if (link instanceof HTMLAnchorElement) {
+  link.href = `https://kakao.com`;
 }
 /**
   HTMLAnchorElement
@@ -39,21 +41,21 @@ if (링크 instanceof HTMLAnchorElement) {
  */
 
 // eventListener
-const 버튼 = document.querySelector(`button`);
-버튼?.addEventListener(`click`, function () { // undefinced error 안 남
-  console.log(`안녕`);
+const button = document.querySelector(`button`);
+button?.addEventListener(`click`, () => { // undefinced error 안 남
+  alert(`안녕`);
 });
 
 // img
-const 이미지 = document.querySelector(`img`);
-if (이미지 instanceof HTMLImageElement) {
-  이미지.src = `change.png`;
+const img = document.querySelector(`img`);
+if (img instanceof HTMLImageElement) {
+  img.src = `/images/change.png`;
 }
 
-// 링크 한 번에 변경
-const 링크2 = document.querySelectorAll('.naver');
-링크2.forEach((a) => {
-  if (a instanceof HTMLAnchorElement) {
-    a.href = 'https://kakao.com';
+// link 한 번에 변경
+const links = document.querySelectorAll('.naver');
+links.forEach((x) => {
+  if (x instanceof HTMLAnchorElement) {
+    x.href = 'https://kakao.com';
   }
 });

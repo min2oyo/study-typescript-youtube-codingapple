@@ -1,29 +1,36 @@
-/** class는 object 뽑는 기계 */
+/** class는 object 뽑는 machine */
 
 // 1단계
-const nunu1 = {
-  q: `consume`,
-  w: `snowball`
+const nunu = {
+  x: `consume`,
+  y: `snowball`
 };
 
-const garen1 = {
-  q: `strike`,
-  w: `courage`
+const garen = {
+  x: `strike`,
+  y: `courage`
 };
 
 // 2단계
-function 기계(q, w) {
-  this.q = q;
-  this.w = w;
-}
+function machine(x, y) {
+  this.x = x;
+  this.y = y;
+};
 
-const nunu2 = new 기계(`consume`, `snowball`);
-const garen2 = new 기계(`strike`, `courage`);
+const newNunu = new machine(`consume`, `snowball`);
+const newGaren = new machine(`strike`, `courage`);
+
+console.log(newNunu);   // machine { x: 'consume', y: 'snowball' }
+console.log(newGaren);  // machine { x: 'strike', y: 'courage' }
 
 // 3단계
 class Hero {
-  constructor(q, w) {
-    this.q = q;
-    this.w = w;
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
   }
 }
+
+const hero = new Hero(`hi`, `bye`);
+
+console.log(hero);  // Hero { x: 'hi', y: 'bye' }

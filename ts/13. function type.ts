@@ -26,8 +26,8 @@ const _function_type = () => {
     }
   };
 
-  console.log(user.plusOne(1));   // 2
-  console.log(user.changeName()); // 안녕
+  console.log(user.plusOne(1)); // 2
+  user.changeName();            // 안녕
 
   // 회원정보
   type Member = {
@@ -45,29 +45,22 @@ const _function_type = () => {
   };
 
   // 함수2개 만들고 타입 정의
-  type CutType = (x: string) => string;
+  type CutType1 = (x: string) => string;
+  type CutType2 = (x: string) => number;
 
-  const cutZero: CutType = function (x) {
-    const result = x.replace(/^0+/, "");  // '0' 문자가 있으면 제거
-    return result;
+  const cutZero: CutType1 = x => {
+    return x.replace(/^0+/, "");  // '0' 문자가 있으면 제거
   };
 
-  function removeDash(x: string): number {
-    const result = x.replace(/-/g, ""); // 대시기호 '-' 가 있으면 전부 제거
-    return parseFloat(result);
+  const removeDash: CutType2 = x => {
+    return parseFloat(x.replace(/-/g, "")); // 대시기호 '-' 가 있으면 전부 제거
   };
 
-  // 콜백함수
-  type FuncType1 = (a: string) => string;
-  type FuncType2 = (a: string) => number;
+  const makeFunc = (x: string, cutZero: CutType1, removeDash: CutType2) => {
+    return removeDash(cutZero(x));
+  };
 
-  function makeFunc(a: string, func1: FuncType1, func2: FuncType2) {
-    const result = func1(a);
-    const result2 = func2(result);
-    console.log(result2);
-  }
-
-  makeFunc(`010-1111-2222`, cutZero, removeDash);  // 1011112222 출력잘됨
+  console.log(makeFunc(`010-1111-2222`, cutZero, removeDash));  // 1011112222
 
 
   /** light */
