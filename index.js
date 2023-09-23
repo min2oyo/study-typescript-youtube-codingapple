@@ -816,68 +816,75 @@ _import();
 const _generic = () => {
     /** 개념 */
     // generic
-    function 함수(x) {
+    const func1 = (x) => {
         return x[0];
-    }
-    const a = 함수([4, 2]);
-    const b = 함수([`4`, `2`]); // Type 자동 설정
+    };
+    const a = func1([4, 2]);
+    const b = func1([`4`, `2`]); // Type 자동 설정
+    console.log(a); // 4
+    console.log(b); // 4
     // constraints
-    function 함수2(x) {
+    const func2 = (x) => {
         return x - 1;
-    }
-    const c = 함수2(100);
-    function 함수3(x) {
+    };
+    const c = func2(100);
+    console.log(c); // 99
+    const func3 = (x) => {
         return x.length;
-    }
-    const d = 함수3(`100`);
-    const e = 함수3([`100`]);
+    };
+    const d = func3(`100`);
+    const e = func3([`100`]);
+    console.log(d); // 3
+    console.log(e); // 2
     // class
     class Hi {
     }
     /** 실습 */
     // 갯수 구하기
-    function 함수4(x) {
+    const func4 = (x) => {
         console.log(x.length);
-    }
-    함수4('hello');
-    함수4(['kim', 'park']);
+    };
+    func4('hello'); // 5
+    func4(['kim', 'park']); // 2
     const data = '{"name" : "dog", "age" : 1 }';
-    function 함수5(data) {
+    const func5 = (data) => {
         return JSON.parse(data);
-    }
-    console.log(함수5(data));
+    };
+    console.log(func5(data)); // { name: 'dog', age: 1 }
     // class
     class Person {
         constructor(a) {
             this.name = a;
         }
     }
-    const f = new Person('어쩌구');
-    f.name;
+    const person = new Person('어쩌구');
+    console.log(person.name); // 어쩌구
 };
 _generic();
 const _tuple_type = () => {
     /** 개념 */
     // 변수
-    const 멍멍 = [`dog`, true]; // ?는 뒤에서 부터 채움
+    const bark = [`dog`, true]; // ?는 뒤에서 부터 채움
     // 함수
-    function 함수(...x) {
+    const func = (...x) => {
         return x;
-    }
-    console.log(함수(111, `222`));
+    };
+    console.log(func(111, `222`)); // [ 111, `222` ]
     // 배열
-    const arr = [1, 2, 3];
-    const arr2 = [4, 5, ...arr];
-    const arr3 = ['동서녹차', 4000, true, false, true, true, false, true];
+    const arr1 = [1, 2, 3];
+    const arr2 = [4, 5, ...arr1];
+    console.log(arr2); // [ 4, 5, 1, 2, 3 ]
+    const arr3 = [`동서녹차`, 4000, true, false, true, true, false, true];
     // 2
-    function 함수2(...rest) {
-    }
-    함수2('a', true, 6, 3, '1', 4);
+    const func2 = (...rest) => {
+        return rest;
+    };
+    console.log(func2(`a`, true, 6, 3, `1`, 4)); // [ 'a', true, 6, 3, '1', 4 ]
     // 3
-    function 함수3(...rest) {
+    const func3 = (...rest) => {
         const result = [[], []];
         rest.forEach((a) => {
-            if (typeof a === 'string') {
+            if (typeof a === `string`) {
                 result[0].push(a);
             }
             else {
@@ -885,8 +892,11 @@ const _tuple_type = () => {
             }
         });
         return result;
-    }
-    console.log(함수3('b', 5, 6, 8, 'a'));
+    };
+    console.log(func3(`b`, 5, 6, 8, `a`)); // [ [ 'b', 'a' ], [ 5, 6, 8 ] ]
+    /** light */
+    bark;
+    arr3;
 };
 _tuple_type();
 console.log(data_a);
@@ -900,13 +910,14 @@ const _declare = () => {
 _declare;
 const _implements = () => {
     /** 개념 */
-    class Car2 {
+    class Car {
         constructor(a) {
             this.price = 1000;
             this.model = a;
         }
     }
-    const 붕붕이 = new Car2('morning');
+    const car = new Car('morning');
+    console.log(car); // Car { price: 1000, model: 'morning' }
 };
 _implements();
 const _object_index_signatures = () => {

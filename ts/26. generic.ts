@@ -1,41 +1,44 @@
 const _generic = () => {
 
   /** 개념 */
-
   // generic
-  function 함수<T>(x: T[]) {  // 2개 이상 넣을 수도 있음
+  const func1 = <T>(x: T[]) => {  // 2개 이상 넣을 수도 있음
     return x[0];
-  }
+  };
 
-  const a = 함수<number>([4, 2]);
-  const b = 함수([`4`, `2`]); // Type 자동 설정
+  const a = func1<number>([4, 2]);
+  const b = func1([`4`, `2`]); // Type 자동 설정
 
-
+  console.log(a); // 4
+  console.log(b); // 4
 
   // constraints
-  function 함수2<T extends number>(x: T) {
+  const func2 = <T extends number>(x: T) => {
     return x - 1;
-  }
+  };
 
-  const c = 함수2<number>(100);
+  const c = func2<number>(100);
 
-
+  console.log(c); // 99
 
   // custom type
   interface LengthCheck {
     length: number;
   }
 
-  function 함수3<T extends LengthCheck>(x: T) {
+  const func3 = <T extends LengthCheck>(x: T) => {
     return x.length;
-  }
-  const d = 함수3<string>(`100`);
-  const e = 함수3<string[]>([`100`]);
+  };
 
+  const d = func3<string>(`100`);
+  const e = func3<string[]>([`100`]);
 
+  console.log(d); // 3
+  console.log(e); // 2
 
   // class
   class Hi<T> { }
+
   // type
   type Age<T> = T;
 
@@ -43,14 +46,12 @@ const _generic = () => {
 
   /** 실습 */
   // 갯수 구하기
-  function 함수4<T extends string | string[]>(x: T) {
+  const func4 = <T extends string | string[]>(x: T) => {
     console.log(x.length);
-  }
+  };
 
-  함수4<string>('hello');
-  함수4<string[]>(['kim', 'park']);
-
-
+  func4<string>('hello'); // 5
+  func4<string[]>(['kim', 'park']); // 2
 
   // 동물
   interface Animal {
@@ -60,13 +61,11 @@ const _generic = () => {
 
   const data = '{"name" : "dog", "age" : 1 }';
 
-  function 함수5<T>(data: string): T {
+  const func5 = <T>(data: string): T => {
     return JSON.parse(data);
-  }
+  };
 
-  console.log(함수5<Animal>(data));
-
-
+  console.log(func5<Animal>(data)); // { name: 'dog', age: 1 }
 
   // class
   class Person<T> {
@@ -75,8 +74,10 @@ const _generic = () => {
       this.name = a;
     }
   }
-  const f = new Person<string>('어쩌구');
-  f.name;
+
+  const person = new Person<string>('어쩌구');
+
+  console.log(person.name); // 어쩌구
 
 };
 
