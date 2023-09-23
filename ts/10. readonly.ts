@@ -9,7 +9,6 @@ const _readonly = () => {
   const girlfriend: Girlfriend = {
     name: `수정`
   };
-
   // girlfriend.name = `유라`; // error
 
 

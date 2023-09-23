@@ -295,49 +295,65 @@ const _readonly = () => {
 };
 _readonly();
 const _type_alias_extend = () => {
+    /** 개념 */
     const position = { x: 10, y: 20 };
-    const 회원가입정보 = {
+    const member = {
         name: 'kim',
         adult: false,
         phone: 1234
     };
+    /** light */
+    const person = ``;
+    person;
+    position;
+    member;
 };
 _type_alias_extend();
+/** 특정 글자나 숫자만 가질 수 있게 제한을 두는 타입
+ 
+  해결법
+  1. object 만들 때 타입 지정 확실히 하기
+  2. as 문법으로 타입 구라치기
+  3. as const 사용
+    - object value 값을 그대로 타입으로 지정해 줌
+    - object 속성들에 모두 readonly 붙여줌
+
+*/
 const _literal_type = () => {
-    /** 특정 글자나 숫자만 가질 수 있게 제한을 두는 타입 */
+    /** 개념 */
     // varable
-    let 접니다;
-    접니다 = `대머리`;
+    let me;
+    me = `대머리`;
     // function
-    function 함수(a) {
+    function func1(param) {
+        param;
         return 1;
     }
-    function 함수2(a) {
+    console.log(func1(`hello`));
+    function fucn2(param) {
+        param;
         return [`가위`, `보`];
     }
-    console.log(함수2(`가위`));
+    console.log(fucn2(`가위`)); // [ '가위', '보' ]
     // 문제점
-    const 자료 = {
+    const data = {
         name: `kim`
-    };
-    function 내함수(a) {
+    }; // 정확히 명시?
+    function myFunc(param) {
+        param;
     }
-    내함수(자료.name);
-    /** 해결법
-        1. object 만들 때 타입 지정 확실히 하기
-        2. as 문법으로 타입 구라치기
-        3. as const 사용
-          - object value 값을 그대로 타입으로 지정해 줌
-          - object 속성들에 모두 readonly 붙여줌
-     */
+    myFunc(data.name); // as const 안 하면 error
 };
 _literal_type();
 const _function_type = () => {
-    const 함수 = function (x, y) {
+    /** 개념 */
+    const func = function (x, y) {
         return x + y;
     };
+    console.log(func(1, 2)); // 3
+    /** 실습 */
     // object
-    const 회원정보 = {
+    const user = {
         name: `kim`,
         age: 30,
         plusOne(x) {
@@ -347,8 +363,14 @@ const _function_type = () => {
             console.log(`안녕`);
         }
     };
-    회원정보.plusOne(1);
-    회원정보.changeName();
+    console.log(user.plusOne(1)); // 2
+    console.log(user.changeName()); // 안녕
+    const member = {
+        name: `ria`,
+        age: 21,
+        plusOne: (x) => x,
+        changeName: () => { }
+    };
     const cutZero = function (x) {
         const result = x.replace(/^0+/, ""); // '0' 문자가 있으면 제거
         return result;
@@ -357,12 +379,15 @@ const _function_type = () => {
         const result = x.replace(/-/g, ""); // 대시기호 '-' 가 있으면 전부 제거
         return parseFloat(result);
     }
-    function 만들함수(a, func1, func2) {
+    ;
+    function makeFunc(a, func1, func2) {
         const result = func1(a);
         const result2 = func2(result);
         console.log(result2);
     }
-    만들함수(`010-1111-2222`, cutZero, removeDash); // 1011112222 출력잘됨
+    makeFunc(`010-1111-2222`, cutZero, removeDash); // 1011112222 출력잘됨
+    /** light */
+    member;
 };
 _function_type();
 /** narrowing 5가지 방법 */
