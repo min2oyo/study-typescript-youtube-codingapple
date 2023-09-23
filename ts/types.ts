@@ -8,7 +8,7 @@ interface 인터페이스 { }
 /** 실습 */
 // 1
 type Car = {
-  wheel: number,
+  wheel: number;
   model: string;
 };
 

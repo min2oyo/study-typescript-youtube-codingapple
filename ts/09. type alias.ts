@@ -15,7 +15,7 @@ const _type_alias = () => {
   const teacher: Person = { name: `kim`, age: 20 };
 
   // 회원정보
-  type User = { name: string, email?: string, phone: number; };
+  type User = { name: string; email?: string, phone: number; };
 
   const user: User = {
     name: 'kim',

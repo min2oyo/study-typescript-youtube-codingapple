@@ -31,8 +31,9 @@ const _keyof = () => {
   };
 
   type TypeChanger<MyType> = {
-    [key in keyof MyType]: string
+    [key in keyof MyType]: string;
   };
+
   type 새로운타입 = TypeChanger<Car2>;
 
   const obj2: 새로운타입 = {
@@ -44,8 +45,8 @@ const _keyof = () => {
   /** 실습 */
   // 1
   type Bus = {
-    color: string,
-    model: boolean,
+    color: string;
+    model: boolean;
     price: number;
   };
 

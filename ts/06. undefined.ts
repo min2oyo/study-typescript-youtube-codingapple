@@ -12,8 +12,8 @@ const _undefined = () => {
 
   // object
   type Square = {
-    color?: string,
-    width: number,
+    color?: string;
+    width: number;
   };
 
   const square: Square = {

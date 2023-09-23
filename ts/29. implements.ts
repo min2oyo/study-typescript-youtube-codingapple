@@ -1,9 +1,8 @@
 const _implements = () => {
 
   /** 개념 */
-
   interface CarType {
-    model: string,
+    model: string;
     price: number;
     // color: string,
     // tax: (price: number) => number;
@@ -18,12 +17,13 @@ const _implements = () => {
       this.model = a;
     }
 
-    // color;  // any type
-    // tax(a) {   ///a 파라미터는 any 타입됨 
+    // color;     // any type
+    // tax(a) {   // a 파라미터는 any 타입됨 
     //   return a * 0.1;
     // }
 
   }
+
   const car = new Car('morning');
 
   console.log(car); // Car { price: 1000, model: 'morning' }

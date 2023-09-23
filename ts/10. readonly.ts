@@ -15,8 +15,8 @@ const _readonly = () => {
   /** 실습 */
 
   type MyType = {
-    color?: string,
-    size: number,
+    color?: string;
+    size: number;
     readonly position: number[];
   };
 
