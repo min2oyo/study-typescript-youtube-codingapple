@@ -1,9 +1,14 @@
 const _undefined = () => {
 
-  /** ?는 number | undefined와 같음 */
+  /** 개념 */
+
   // function
-  function 함수(x?: number): void { };
-  함수();
+  function numVoid(x?: number): void {  // ?는 number | undefined와 같음
+    x;
+  };
+
+
+  /** 실습 */
 
   // object
   type Square = {
@@ -11,9 +16,13 @@ const _undefined = () => {
     width: number,
   };
 
-  let 네모: Square = {
+  const square: Square = {
     width: 100
   };
+
+
+  /** light */
+  numVoid(); square;
 
 };
 

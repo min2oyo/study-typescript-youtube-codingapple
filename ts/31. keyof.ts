@@ -2,7 +2,7 @@ const _keyof = () => {
 
   /** 개념 */
   // key 조회
-  let obj = { name: `kim`, age: 20 };
+  const obj = { name: `kim`, age: 20 };
   console.log(Object.keys(obj));
 
   // 2
@@ -11,16 +11,16 @@ const _keyof = () => {
     name: string;
   }
   type PersonKeys = keyof Person; // `age` | `name`
-  let a: PersonKeys = `name`;
+  const a: PersonKeys = `name`;
 
   // 3
   interface Person2 {
     [key: string]: number;
   }
   type PersonKeys2 = keyof Person2; // string | number  // number도 가능함
-  let a2: PersonKeys2 = `name`;
-  let a3: PersonKeys2 = `name2`;
-  let a4: PersonKeys2 = 1;
+  const a2: PersonKeys2 = `name`;
+  const a3: PersonKeys2 = `name2`;
+  const a4: PersonKeys2 = 1;
 
   // Mapped Types
   type Car2 = {
@@ -34,7 +34,7 @@ const _keyof = () => {
   };
   type 새로운타입 = TypeChanger<Car2>;
 
-  let obj2: 새로운타입 = {
+  const obj2: 새로운타입 = {
     color: 'red',
     model: 'kia',
     price: '300',

@@ -15,10 +15,10 @@ const _union_type = () => {
   const user: string = 'kim';
   const age: undefined | number = undefined;
   const married: boolean = false;
-  const jia: (string | number | undefined | boolean)[] = [user, age, married];
+  const luna: (string | number | undefined | boolean)[] = [user, age, married];
 
-  // 학교
-  const 학교: {
+  // school
+  const school: {
     score: (number | boolean)[],
     teacher: string,
     friend: string | string[];
@@ -27,8 +27,18 @@ const _union_type = () => {
     teacher: 'Phil',
     friend: 'John'
   };
-  학교.score[4] = false;
-  학교.friend = ['Lee', 학교.teacher];
+  school.score[4] = false;
+  school.friend = ['Lee', school.teacher];
+  console.log(school);
+  // {
+  //   score: [100, 97, 84, <1 empty item >, false],
+  //   teacher: 'Phil',
+  //   friend: ['Lee', 'Phil'];
+  // }
+
+
+  /** light */
+  number; numbers; object; what = ``; luna;
 
 };
 

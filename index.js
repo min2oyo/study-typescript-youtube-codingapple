@@ -6,7 +6,7 @@ const _index = () => {
     // Array
     const array = [`kim`, `park`];
     // Object
-    const object = { name: `kim` }; // ?는 옵션
+    const object = { age: 19 }; // ?는 옵션
     // Union
     const union = `kim`;
     const word = 123;
@@ -45,22 +45,22 @@ const _index = () => {
 _index();
 const _primitive_types = () => {
     /** 개념 */
-    // Type은 알아서 지정해주므로, 고인물은 type 안 씀
+    // Type은 알아서 지정되므로, 고인물은 type 안 씀
     const name = `kim`;
     const age = 50;
-    const isMarried1 = true;
-    const isMarried2 = null;
-    const isMarried3 = undefined;
-    const members1 = [`kim`, `park`];
-    const members2 = { membr1: `kim`, member2: `park` };
+    const isMarried = true;
+    const home = null;
+    const money = undefined;
+    const furniture = [`kim`, `park`];
+    const members = { membr1: `kim`, member2: `park` };
     /** light */
     name;
     age;
-    isMarried1;
-    isMarried2;
-    isMarried3;
-    members1;
-    members2;
+    isMarried;
+    home;
+    money;
+    furniture;
+    members;
 };
 _primitive_types();
 const _union_type = () => {
@@ -76,18 +76,31 @@ const _union_type = () => {
     const user = 'kim';
     const age = undefined;
     const married = false;
-    const jia = [user, age, married];
-    // 학교
-    const 학교 = {
+    const luna = [user, age, married];
+    // school
+    const school = {
         score: [100, 97, 84],
         teacher: 'Phil',
         friend: 'John'
     };
-    학교.score[4] = false;
-    학교.friend = ['Lee', 학교.teacher];
+    school.score[4] = false;
+    school.friend = ['Lee', school.teacher];
+    console.log(school);
+    // {
+    //   score: [100, 97, 84, <1 empty item >, false],
+    //   teacher: 'Phil',
+    //   friend: ['Lee', 'Phil'];
+    // }
+    /** light */
+    number;
+    numbers;
+    object;
+    what = ``;
+    luna;
 };
 _union_type();
 const _any = () => {
+    /** 개념 */
     let age;
     age = 123;
     age = [];
@@ -98,75 +111,91 @@ const _any = () => {
 };
 _any();
 const _unknown = () => {
-    let 이름;
-    이름 = {};
-    이름 = 123;
-    // let 변수1: string = 이름;  // error 남
-    // let 변수2: boolean = 이름; // error 남
-    // let 변수3: number = 이름;  // error 남
-    // 이름[0];    // 왜 error 나지?
-    // 이름 - 1;   // error 남
-    // 이름.data;  // error 남
-    let 나이 = 1;
-    // 나이 - 1;  // error 남 // 숫자 타입이여야 숫자처럼 연산해 줌
+    /** 개념 */
+    let name;
+    name = {};
+    name = 123;
+    // const str: string = name;  // error
+    // const bln: boolean = name; // error
+    // const num: number = name;  // error
+    // name[0];    // 왜 error 나지?
+    // name - 1;   // error
+    // name.data;  // error
+    const age = 1;
+    // age - 1;  // error // 숫자 타입이여야 숫자처럼 연산해 줌
+    /** light */
+    age;
 };
 _unknown();
 const _function = () => {
+    /** 개념 */
     // return
-    function 함수(x) {
+    function numNum(x) {
         return x * 2;
     }
     // void
-    function 함수2(x) {
-        1 + 1;
+    function numVoid(x) {
+        1 + x;
     }
+    /** 실습 */
     // 이름 출력
     function sayHi(x) {
-        console.log(x ? `안녕하세요 ` + x : '왜 입력 안 함?');
+        console.log(x ? `안녕하세요 ` + x : '왜 입력 안 함?'); // 삼항식
     }
-    sayHi(`ria`);
-    sayHi();
-    // 자릿수세기
-    function 자릿수세기(x) {
+    sayHi(`ria`); // 안녕하세요 ria
+    sayHi(); // 왜 입력 안 함?
+    // 자릿수 세기
+    function length(x) {
         return x.toString().length;
     }
-    자릿수세기(245);
-    자릿수세기(9567);
+    console.log(length(245)); // 3
+    console.log(length(9567)); // 4
     // 결혼 가능 확률
-    function 결혼가능하냐(money, house, charm) {
+    function canYouGetMarried(money, house, charm) {
         let score = 0;
         if (money >= 0)
             score += money;
+        else
+            return `소득 제대로 입력하셈`;
         if (house)
             score += 500;
-        if (charm === '상')
+        if (charm === `상`)
             score += 100;
         if (score >= 600)
-            return '결혼가능';
+            return `결혼가능`;
     }
-    console.log(결혼가능하냐(100, true, '상'));
+    console.log(canYouGetMarried(100, true, `상`)); // 결혼가능
+    console.log(canYouGetMarried(-100, true, `상`)); // 소득 제대로 입력하셈
     /**
       하지만 월 소득을 마이너스로 이상한 숫자를 입력하면 어쩌죠?
-      그런 것도 막으려면 코드를 어떻게 짜야할까요.
+      그런 것도 막으려면 코드를 어떻게 짜야할까요. (해결함)
       마지막으로 string이 아니라 '상' '중' '하' 라는 글자만 입력할 수 있게 더욱 엄격한 타입지정도 가능한데
       그건 Literal type 시간에 알아봅시다.
      */
+    /** light */
+    numNum;
+    numVoid;
 };
 _function();
 const _undefined = () => {
-    /** ?는 number | undefined와 같음 */
+    /** 개념 */
     // function
-    function 함수(x) { }
+    function numVoid(x) {
+        x;
+    }
     ;
-    함수();
-    let 네모 = {
+    const square = {
         width: 100
     };
+    /** light */
+    numVoid();
+    square;
 };
 _undefined();
 const _narrowing = () => {
-    /** Narrowing 판정 문법: typeof 변수, 속성명 in 오브젝트자료, 인스턴스 instanceof 부모 */
-    function 내함수(x) {
+    /** 개념 */
+    // Narrowing 판정 문법: typeof 변수 | 속성명 in 오브젝트자료 | 인스턴스 instanceof 부모
+    function myFunc(x) {
         if (typeof x === `number`)
             return x + 1;
         else if (typeof x === `string`)
@@ -174,86 +203,95 @@ const _narrowing = () => {
         else
             0;
     }
-    console.log(내함수(123));
+    console.log(myFunc(123)); // 124
+    console.log(myFunc(`123`)); // 1231
+    /** 실습 */
     // 숫자 변환
-    function 클리닝함수(a) {
-        let 클리닝완료된거 = [];
-        a.forEach((b) => {
-            if (typeof b === 'string') {
-                클리닝완료된거.push(parseFloat(b));
-            }
-            else {
-                클리닝완료된거.push(b);
-            }
+    function cleanFunc(param) {
+        const cleaned = [];
+        param.forEach((item) => {
+            const condition = typeof item === 'string';
+            cleaned.push(condition ? parseFloat(item) : item);
         });
-        return 클리닝완료된거;
+        return cleaned;
     }
-    console.log(클리닝함수([123, '3']));
-    // 과목
-    let 철수쌤 = { subject: 'math' };
-    let 영희쌤 = { subject: ['science', 'english'] };
-    let 민수쌤 = { subject: ['science', 'art', 'korean'] };
-    function 만들함수(x) {
-        if (typeof x.subject === 'string') {
-            return x.subject;
+    console.log(cleanFunc([123, '3'])); // [ 123, 3 ]
+    // 최종 과목
+    const cheolsu = { subject: 'math' };
+    const younghee = { subject: ['science', 'english'] };
+    const minsu = { subject: ['science', 'art', 'korean'] };
+    function makeFunc(param) {
+        if (typeof param.subject === 'string') {
+            return param.subject;
         }
-        else if (Array.isArray(x.subject)) {
-            return x.subject[x.subject.length - 1];
+        else if (Array.isArray(param.subject)) {
+            return param.subject[param.subject.length - 1];
         }
         else {
             return '없쪄';
         }
     }
-    console.log(만들함수({ subject: 'math' }));
-    console.log(만들함수({ subject: ['science', 'art', 'korean'] }));
-    console.log(만들함수({ subject: ['english', 'art'] }));
-    // console.log(만들함수({ hello: 'hi' }));  // type error
+    console.log(makeFunc(cheolsu)); // math
+    console.log(makeFunc(younghee)); // art
+    console.log(makeFunc(minsu)); // korean
+    // console.log(makeFunc({ hello: 'hi' }));  // type error
+    /** light */
+    cheolsu;
+    younghee;
+    minsu;
 };
 _narrowing();
+/**
+  Assertion 용도
+  - Narrowing 할 때 사용
+  - 무슨 타입이 들어올지 100% 확실할 때 사용
+  - 굳이 쓰지 않도록
+  - 이럴 때 사용
+    - 남이 짠 코드 수정할 떄
+    - 왜 타입에러가 나는지 모를 때
+    - 비상용
+*/
 const _assertion = () => {
-    /**
-      Assertion 용도
-      - Narrowing 할 때 사용
-      - 무슨 타입이 들어올지 100% 확실할 때 사용
-      - 굳이 쓰지 않도록
-      - 이럴 때 사용
-        - 남이 짠 코드 수정할 떄
-        - 왜 타입에러가 나는지 모를 때
-        - 비상용
-     */
-    function 내함수(x) {
-        let array = [];
-        array[0] = x;
+    /** 개념 */
+    function myFucn(param) {
+        const array = [];
+        array[0] = param;
+        console.log(array);
     }
-    내함수(123);
-    function 변환기(data) {
+    myFucn(123); // [ 123 ]
+    function change(data) {
         return JSON.parse(data);
     }
-    const jake = 변환기('{"name":"kim"}');
+    const jake = change(`{"name":"kim"}`);
+    console.log(jake); // { name: 'kim' }
 };
 _assertion();
 const _type_alias = () => {
-    let 동물 = 123;
-    let teacher = { name: `kim`, age: 20 };
-    let 회원가입정보 = {
+    /** 개념 */
+    const animal = 123;
+    const teacher = { name: `kim`, age: 20 };
+    const 회원가입정보 = {
         name: 'kim',
         phone: 123,
     };
+    /** light */
+    animal;
+    teacher;
 };
 _type_alias();
 const _readonly = () => {
     const 여친 = {
         name: `수정`
     };
-    let 테스트용변수 = {
+    const 테스트용변수 = {
         size: 123,
         position: [1, 2, 3]
     };
 };
 _readonly();
 const _type_alias_extend = () => {
-    let position = { x: 10, y: 20 };
-    let 회원가입정보 = {
+    const position = { x: 10, y: 20 };
+    const 회원가입정보 = {
         name: 'kim',
         adult: false,
         phone: 1234
@@ -274,7 +312,7 @@ const _literal_type = () => {
     }
     console.log(함수2(`가위`));
     // 문제점
-    var 자료 = {
+    const 자료 = {
         name: `kim`
     };
     function 내함수(a) {
@@ -290,11 +328,11 @@ const _literal_type = () => {
 };
 _literal_type();
 const _function_type = () => {
-    let 함수 = function (x, y) {
+    const 함수 = function (x, y) {
         return x + y;
     };
     // object
-    let 회원정보 = {
+    const 회원정보 = {
         name: `kim`,
         age: 30,
         plusOne(x) {
@@ -306,17 +344,17 @@ const _function_type = () => {
     };
     회원정보.plusOne(1);
     회원정보.changeName();
-    let cutZero = function (x) {
-        let result = x.replace(/^0+/, ""); // '0' 문자가 있으면 제거
+    const cutZero = function (x) {
+        const result = x.replace(/^0+/, ""); // '0' 문자가 있으면 제거
         return result;
     };
     function removeDash(x) {
-        let result = x.replace(/-/g, ""); // 대시기호 '-' 가 있으면 전부 제거
+        const result = x.replace(/-/g, ""); // 대시기호 '-' 가 있으면 전부 제거
         return parseFloat(result);
     }
     function 만들함수(a, func1, func2) {
-        let result = func1(a);
-        let result2 = func2(result);
+        const result = func1(a);
+        const result2 = func2(result);
         console.log(result2);
     }
     만들함수(`010-1111-2222`, cutZero, removeDash); // 1011112222 출력잘됨
@@ -324,26 +362,26 @@ const _function_type = () => {
 _function_type();
 /** narrowing 5가지 방법 */
 // 1. 일반
-let 제목1 = document.querySelector(`#title`);
+const 제목1 = document.querySelector(`#title`);
 if (제목1 != null) {
     제목1.innerHTML = `반가워요`;
 }
 // 2. instanceof (추천)
-let 제목2 = document.querySelector(`#title`);
+const 제목2 = document.querySelector(`#title`);
 if (제목2 instanceof Element) { // Object instanceof Class
     제목2.innerHTML = `반가워요`;
 }
 // 3. assertion
-let 제목3 = document.querySelector(`#title`);
+const 제목3 = document.querySelector(`#title`);
 제목3.innerHTML = `반가워요`;
 // 4. optional chaining
-let 제목4 = document.querySelector(`#title`);
+const 제목4 = document.querySelector(`#title`);
 if ((제목4 === null || 제목4 === void 0 ? void 0 : 제목4.innerHTML) != undefined) {
     제목4.innerHTML = `반가워요`;
 }
 // 5. strict mode off in tsconfig.json
 // Element 상속
-let 링크 = document.querySelector(`.link`);
+const 링크 = document.querySelector(`.link`);
 if (링크 instanceof HTMLAnchorElement) {
     링크.href = `https://kakao.com`;
 }
@@ -358,17 +396,17 @@ if (링크 instanceof HTMLAnchorElement) {
   - <img>
  */
 // eventListener
-let 버튼 = document.querySelector(`button`);
+const 버튼 = document.querySelector(`button`);
 버튼 === null || 버튼 === void 0 ? void 0 : 버튼.addEventListener(`click`, function () {
     console.log(`안녕`);
 });
 // img
-let 이미지 = document.querySelector(`img`);
+const 이미지 = document.querySelector(`img`);
 if (이미지 instanceof HTMLImageElement) {
     이미지.src = `change.png`;
 }
 // 링크 한 번에 변경
-let 링크2 = document.querySelectorAll('.naver');
+const 링크2 = document.querySelectorAll('.naver');
 링크2.forEach((a) => {
     if (a instanceof HTMLAnchorElement) {
         a.href = 'https://kakao.com';
@@ -386,8 +424,8 @@ const _class = () => {
             return `안녕, ${name}`;
         }
     }
-    let kim = new Person(`kim`);
-    let park = new Person(`park`);
+    const kim = new Person(`kim`);
+    const park = new Person(`park`);
     console.log(kim.data);
     console.log(kim.함수(`jiwan`));
     // car
@@ -400,14 +438,14 @@ const _class = () => {
             return this.price * 0.1;
         }
     }
-    let car1 = new Car('소나타', 3000);
+    const car1 = new Car('소나타', 3000);
     console.log(car1); // Car { model: '소나타', price: 3000 }
     console.log(car1.tax()); // 300
     //  class Word
     class Word {
         constructor(...param) {
-            let 숫자들 = [];
-            let 문자들 = [];
+            const 숫자들 = [];
+            const 문자들 = [];
             param.forEach((i) => {
                 if (typeof i === 'string') {
                     문자들.push(i);
@@ -420,18 +458,18 @@ const _class = () => {
             this.str = 문자들;
         }
     }
-    let obj = new Word('kim', 3, 5, 'park');
+    const obj = new Word('kim', 3, 5, 'park');
     console.log(obj.num); // [ 3, 5 ]
     console.log(obj.str); // [ 'kim', 'park' ]
 };
 _class();
 const _interface = () => {
-    let 학생 = { name: `kim` };
-    let 선생 = { name: `kim`, age: 20 };
-    let 상품 = { brand: 'Samsung', serialNumber: 1360, model: ['TV', 'phone'] };
-    let 장바구니 = [{ product: '청소기', price: 7000 }, { product: '삼다수', price: 800 }];
+    const 학생 = { name: `kim` };
+    const 선생 = { name: `kim`, age: 20 };
+    const 상품 = { brand: 'Samsung', serialNumber: 1360, model: ['TV', 'phone'] };
+    const 장바구니 = [{ product: '청소기', price: 7000 }, { product: '삼다수', price: 800 }];
     const basket = { product: '청소기', price: 7000, card: false };
-    let 오브젝트 = {
+    const 오브젝트 = {
         plus(a, b) {
             return a + b;
         },
@@ -449,8 +487,8 @@ const _rest_parameter = () => {
     }
     함수(1, 5, 3, 5, 6, 6);
     // spread operator
-    let arr = [3, 4, 5];
-    let arr2 = [1, 2, ...arr];
+    const arr = [3, 4, 5];
+    const arr2 = [1, 2, ...arr];
     console.log(arr2);
     // Destructuring
     function 함수2({ student, age }) {
@@ -492,7 +530,7 @@ const _narrowing2 = () => {
         }
     }
     // 3. instanceof 연산자 (object instanceof 부모 class)
-    let 날짜 = new Date();
+    const 날짜 = new Date();
     if (날짜 instanceof Date) {
         1;
     }
@@ -534,7 +572,7 @@ const _never = () => {
         }
     }
     // 함수 표현식 (함수 선언문(function 함수4(){})는 void로 나옴)
-    let 함수4 = function () {
+    const 함수4 = function () {
         throw new Error();
     };
 };
@@ -551,7 +589,7 @@ const _private = () => {
             this.familyName = `park`;
         }
     }
-    let 유저1 = new User(`park`);
+    const 유저1 = new User(`park`);
     // 유저1.familyName;  // 사용 못 함
     유저1.changeSecret(); // 사용 가능
     // 축약
@@ -561,7 +599,7 @@ const _private = () => {
         }
         ;
     }
-    let 자식 = new Person(`kim`);
+    const 자식 = new Person(`kim`);
     console.log(`자식`, 자식);
 };
 _private();
@@ -577,7 +615,7 @@ const _protected = () => {
             this.x = 20; // 사용 가능
         }
     }
-    let 사람 = new NewUser();
+    const 사람 = new NewUser();
     console.log(사람); // NewUser { x: 10 }
 };
 _protected();
@@ -589,7 +627,7 @@ const _static = () => {
         }
     }
     User.x = 10; // 부모 class에 직접 부여됨 // 자식에게 안 물려 줌
-    let 자식 = new User();
+    const 자식 = new User();
     console.log(자식); // User { y: 20 }
     /**
      *  추가
@@ -603,10 +641,10 @@ const _static = () => {
         }
     }
     User2.skill = `js`;
-    let 철수 = new User2();
+    const 철수 = new User2();
     console.log(철수); // User2 { intro: 'js전문가입니다.' }
     User2.skill = `ts`;
-    let 철수2 = new User2();
+    const 철수2 = new User2();
     console.log(철수2); // User2 { intro: 'ts전문가입니다.' }
     /** 실습 */
     // 설명
@@ -651,8 +689,8 @@ const _static = () => {
             this.color = color;
         }
         draw() {
-            let a = Math.random();
-            let square = `
+            const a = Math.random();
+            const square = `
       <div style="
         position: relative;
         top: ${a * 400}px;
@@ -665,7 +703,7 @@ const _static = () => {
             document.body.insertAdjacentHTML('beforeend', square);
         }
     }
-    let 네모 = new Square(30, 30, 'red');
+    const 네모 = new Square(30, 30, 'red');
     네모.draw();
     네모.draw();
     네모.draw();
@@ -692,18 +730,18 @@ const _generic = () => {
     function 함수(x) {
         return x[0];
     }
-    let a = 함수([4, 2]);
-    let b = 함수([`4`, `2`]); // Type 자동 설정
+    const a = 함수([4, 2]);
+    const b = 함수([`4`, `2`]); // Type 자동 설정
     // constraints
     function 함수2(x) {
         return x - 1;
     }
-    let c = 함수2(100);
+    const c = 함수2(100);
     function 함수3(x) {
         return x.length;
     }
-    let d = 함수3(`100`);
-    let e = 함수3([`100`]);
+    const d = 함수3(`100`);
+    const e = 함수3([`100`]);
     // class
     class Hi {
     }
@@ -714,7 +752,7 @@ const _generic = () => {
     }
     함수4('hello');
     함수4(['kim', 'park']);
-    let data = '{"name" : "dog", "age" : 1 }';
+    const data = '{"name" : "dog", "age" : 1 }';
     function 함수5(data) {
         return JSON.parse(data);
     }
@@ -725,30 +763,30 @@ const _generic = () => {
             this.name = a;
         }
     }
-    let f = new Person('어쩌구');
+    const f = new Person('어쩌구');
     f.name;
 };
 _generic();
 const _tuple_type = () => {
     /** 개념 */
     // 변수
-    let 멍멍 = [`dog`, true]; // ?는 뒤에서 부터 채움
+    const 멍멍 = [`dog`, true]; // ?는 뒤에서 부터 채움
     // 함수
     function 함수(...x) {
         return x;
     }
     console.log(함수(111, `222`));
     // 배열
-    let arr = [1, 2, 3];
-    let arr2 = [4, 5, ...arr];
-    let arr3 = ['동서녹차', 4000, true, false, true, true, false, true];
+    const arr = [1, 2, 3];
+    const arr2 = [4, 5, ...arr];
+    const arr3 = ['동서녹차', 4000, true, false, true, true, false, true];
     // 2
     function 함수2(...rest) {
     }
     함수2('a', true, 6, 3, '1', 4);
     // 3
     function 함수3(...rest) {
-        let result = [[], []];
+        const result = [[], []];
         rest.forEach((a) => {
             if (typeof a === 'string') {
                 result[0].push(a);
@@ -778,23 +816,23 @@ const _implements = () => {
             this.model = a;
         }
     }
-    let 붕붕이 = new Car2('morning');
+    const 붕붕이 = new Car2('morning');
 };
 _implements();
 const _object_index_signatures = () => {
-    let user = {
+    const user = {
         name: `kim`,
         age: 20,
         location: `seoul`
     };
-    let css = {
+    const css = {
         'font-size': {
             'font-size': {
                 'font-size': 14
             }
         }
     };
-    let obj = {
+    const obj = {
         model: 'k5',
         brand: 'kia',
         price: 6000,
@@ -803,7 +841,7 @@ const _object_index_signatures = () => {
         percent: '5%',
         dealer: '김차장',
     };
-    let obj2 = {
+    const obj2 = {
         'font-size': 10,
         'secondary': {
             'font-size': 12,
@@ -817,13 +855,13 @@ _object_index_signatures();
 const _keyof = () => {
     /** 개념 */
     // key 조회
-    let obj = { name: `kim`, age: 20 };
+    const obj = { name: `kim`, age: 20 };
     console.log(Object.keys(obj));
-    let a = `name`;
-    let a2 = `name`;
-    let a3 = `name2`;
-    let a4 = 1;
-    let obj2 = {
+    const a = `name`;
+    const a2 = `name`;
+    const a3 = `name2`;
+    const a4 = 1;
+    const obj2 = {
         color: 'red',
         model: 'kia',
         price: '300',

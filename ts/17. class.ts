@@ -15,8 +15,8 @@ const _class = () => {
     }
   }
 
-  let kim = new Person(`kim`);
-  let park = new Person(`park`);
+  const kim = new Person(`kim`);
+  const park = new Person(`park`);
   console.log(kim.data);
   console.log(kim.함수(`jiwan`));
 
@@ -35,7 +35,7 @@ const _class = () => {
   }
 
 
-  let car1 = new Car('소나타', 3000);
+  const car1 = new Car('소나타', 3000);
   console.log(car1); // Car { model: '소나타', price: 3000 }
   console.log(car1.tax()); // 300
 
@@ -47,8 +47,8 @@ const _class = () => {
 
     constructor(...param: (number | string)[]) {
 
-      let 숫자들: number[] = [];
-      let 문자들: string[] = [];
+      const 숫자들: number[] = [];
+      const 문자들: string[] = [];
 
       param.forEach((i) => {
         if (typeof i === 'string') {
@@ -65,7 +65,7 @@ const _class = () => {
 
   }
 
-  let obj = new Word('kim', 3, 5, 'park');
+  const obj = new Word('kim', 3, 5, 'park');
   console.log(obj.num); // [ 3, 5 ]
   console.log(obj.str); // [ 'kim', 'park' ]
 

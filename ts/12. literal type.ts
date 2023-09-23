@@ -16,7 +16,7 @@ const _literal_type = () => {
   console.log(함수2(`가위`));
 
   // 문제점
-  var 자료 = {
+  const 자료 = {
     name: `kim`
   } as const;
 

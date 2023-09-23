@@ -6,8 +6,8 @@ const _generic = () => {
     return x[0];
   }
 
-  let a = 함수<number>([4, 2]);
-  let b = 함수([`4`, `2`]); // Type 자동 설정
+  const a = 함수<number>([4, 2]);
+  const b = 함수([`4`, `2`]); // Type 자동 설정
 
 
 
@@ -16,7 +16,7 @@ const _generic = () => {
     return x - 1;
   }
 
-  let c = 함수2<number>(100);
+  const c = 함수2<number>(100);
 
 
 
@@ -28,8 +28,8 @@ const _generic = () => {
   function 함수3<T extends LengthCheck>(x: T) {
     return x.length;
   }
-  let d = 함수3<string>(`100`);
-  let e = 함수3<string[]>([`100`]);
+  const d = 함수3<string>(`100`);
+  const e = 함수3<string[]>([`100`]);
 
 
 
@@ -57,7 +57,7 @@ const _generic = () => {
     age: number;
   }
 
-  let data = '{"name" : "dog", "age" : 1 }';
+  const data = '{"name" : "dog", "age" : 1 }';
 
   function 함수5<T>(data: string): T {
     return JSON.parse(data);
@@ -74,7 +74,7 @@ const _generic = () => {
       this.name = a;
     }
   }
-  let f = new Person<string>('어쩌구');
+  const f = new Person<string>('어쩌구');
   f.name;
 
 };

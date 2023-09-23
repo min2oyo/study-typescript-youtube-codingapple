@@ -6,7 +6,7 @@ const _static = () => {
     y = 20;
   }
 
-  let 자식 = new User();
+  const 자식 = new User();
   console.log(자식);  // User { y: 20 }
   /**
    *  추가
@@ -22,11 +22,11 @@ const _static = () => {
     intro = User2.skill + `전문가입니다.`;
   }
 
-  let 철수 = new User2();
+  const 철수 = new User2();
   console.log(철수);  // User2 { intro: 'js전문가입니다.' }
 
   User2.skill = `ts`;
-  let 철수2 = new User2();
+  const 철수2 = new User2();
   console.log(철수2); // User2 { intro: 'ts전문가입니다.' }
 
 
@@ -78,8 +78,8 @@ const _static = () => {
     }
 
     draw() {
-      let a = Math.random();
-      let square = `
+      const a = Math.random();
+      const square = `
       <div style="
         position: relative;
         top: ${a * 400}px;
@@ -94,7 +94,7 @@ const _static = () => {
 
   }
 
-  let 네모 = new Square(30, 30, 'red');
+  const 네모 = new Square(30, 30, 'red');
   네모.draw();
   네모.draw();
   네모.draw();

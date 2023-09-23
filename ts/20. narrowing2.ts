@@ -18,7 +18,7 @@ const _narrowing2 = () => {
   }
 
   // 3. instanceof 연산자 (object instanceof 부모 class)
-  let 날짜 = new Date();
+  const 날짜 = new Date();
   if (날짜 instanceof Date) {
     1;
   }

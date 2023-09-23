@@ -33,7 +33,7 @@ const _never = () => {
   }
 
   // 함수 표현식 (함수 선언문(function 함수4(){})는 void로 나옴)
-  let 함수4 = function () { // type: never
+  const 함수4 = function () { // type: never
     throw new Error();
   };
 

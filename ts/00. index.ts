@@ -9,7 +9,7 @@ const _index = () => {
   const array: string[] = [`kim`, `park`];
 
   // Object
-  const object: { name?: string; } = { name: `kim` };  // ?는 옵션
+  const object: { name?: string; age: number; } = { age: 19 };  // ?는 옵션
 
   // Union
   const union: string | number = `kim`;

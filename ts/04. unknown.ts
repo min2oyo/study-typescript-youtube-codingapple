@@ -1,18 +1,25 @@
 const _unknown = () => {
-  let 이름: unknown;
-  이름 = {};
-  이름 = 123;
 
-  // let 변수1: string = 이름;  // error 남
-  // let 변수2: boolean = 이름; // error 남
-  // let 변수3: number = 이름;  // error 남
+  /** 개념 */
 
-  // 이름[0];    // 왜 error 나지?
-  // 이름 - 1;   // error 남
-  // 이름.data;  // error 남
+  let name: unknown;
+  name = {};
+  name = 123;
 
-  let 나이: unknown = 1;
-  // 나이 - 1;  // error 남 // 숫자 타입이여야 숫자처럼 연산해 줌
+  // const str: string = name;  // error
+  // const bln: boolean = name; // error
+  // const num: number = name;  // error
+
+  // name[0];    // 왜 error 나지?
+  // name - 1;   // error
+  // name.data;  // error
+
+  const age: unknown = 1;
+  // age - 1;  // error // 숫자 타입이여야 숫자처럼 연산해 줌
+
+
+  /** light */
+  age;
 
 };
 

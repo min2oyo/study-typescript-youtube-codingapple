@@ -11,7 +11,7 @@ const _protected = () => {
     }
   }
 
-  let 사람 = new NewUser();
+  const 사람 = new NewUser();
   console.log(사람);  // NewUser { x: 10 }
 
 };

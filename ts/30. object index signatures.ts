@@ -7,7 +7,7 @@ const _object_index_signatures = () => {
     age: number,
   }
 
-  let user: StringOnly = {
+  const user: StringOnly = {
     name: `kim`,
     age: 20,
     location: `seoul`
@@ -18,7 +18,7 @@ const _object_index_signatures = () => {
     'font-size': MyType | number;
   }
 
-  let css: MyType = {
+  const css: MyType = {
     'font-size': {
       'font-size': {
         'font-size': 14
@@ -32,7 +32,7 @@ const _object_index_signatures = () => {
     [key: string]: number | string;
   };
 
-  let obj: Car2 = {
+  const obj: Car2 = {
     model: 'k5',
     brand: 'kia',
     price: 6000,
@@ -48,7 +48,7 @@ const _object_index_signatures = () => {
     'font-size': number,
   }
 
-  let obj2: MyType2 = {
+  const obj2: MyType2 = {
     'font-size': 10,
     'secondary': {
       'font-size': 12,

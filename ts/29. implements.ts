@@ -18,7 +18,7 @@ const _implements = () => {
     //   return a * 0.1;
     // }
   }
-  let 붕붕이 = new Car2('morning');
+  const 붕붕이 = new Car2('morning');
 
 };
 

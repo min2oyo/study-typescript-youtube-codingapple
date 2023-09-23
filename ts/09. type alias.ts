@@ -1,16 +1,25 @@
 const _type_alias = () => {
 
-  type Animal = string | number | undefined;
-  let 동물: Animal = 123;
+  /** 개념 */
 
-  type 사람 = { name: string, age: number; };
-  let teacher: 사람 = { name: `kim`, age: 20 };
+  type Animal = string | number | undefined;
+  const animal: Animal = 123;
+
+
+  /** 실습 */
+
+  type Person = { name: string, age: number; };
+  const teacher: Person = { name: `kim`, age: 20 };
 
   type User = { name: string, email?: string, phone: number; };
-  let 회원가입정보: User = {
+  const 회원가입정보: User = {
     name: 'kim',
     phone: 123,
   };
+
+
+  /** light */
+  animal; teacher;
 
 };
 

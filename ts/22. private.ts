@@ -17,7 +17,7 @@ const _private = () => {
 
   }
 
-  let 유저1 = new User(`park`);
+  const 유저1 = new User(`park`);
   // 유저1.familyName;  // 사용 못 함
   유저1.changeSecret(); // 사용 가능
 
@@ -27,7 +27,7 @@ const _private = () => {
     constructor(public name: string) { };
   }
 
-  let 자식 = new Person(`kim`);
+  const 자식 = new Person(`kim`);
   console.log(`자식`, 자식);
 
 };

@@ -8,7 +8,7 @@ function 기계() {
 
 기계.prototype.name = `kim`;
 
-var nunu = new 기계();
+const nunu = new 기계();
 console.log(nunu.name); // kim
 /**object에서 자료 뽑을 때 일어나는 일 (prototype chain)
  * 1. 직접 자료를 가지고 있으면 그거 출력
@@ -17,8 +17,8 @@ console.log(nunu.name); // kim
  */
 
 // 응용
-var 어레이 = [4, 2, 1];
-var 어레이 = new Array(4, 2, 1);  // 위와 같음
+const 어레이1 = [4, 2, 1];
+const 어레이2 = new Array(4, 2, 1);  // 위와 같음
 
 Array.prototype.함수 = function () {
   return 1;

@@ -8,8 +8,8 @@ const _rest_parameter = () => {
   함수(1, 5, 3, 5, 6, 6);
 
   // spread operator
-  let arr = [3, 4, 5];
-  let arr2 = [1, 2, ...arr];
+  const arr = [3, 4, 5];
+  const arr2 = [1, 2, ...arr];
   console.log(arr2);
 
   // Destructuring

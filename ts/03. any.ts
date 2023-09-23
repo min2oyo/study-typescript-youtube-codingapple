@@ -1,5 +1,7 @@
 const _any = () => {
 
+  /** 개념 */
+
   let age: any;
   age = 123;
   age = [];
