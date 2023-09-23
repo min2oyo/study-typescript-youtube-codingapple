@@ -270,23 +270,28 @@ const _type_alias = () => {
     /** 개념 */
     const animal = 123;
     const teacher = { name: `kim`, age: 20 };
-    const 회원가입정보 = {
+    const user = {
         name: 'kim',
         phone: 123,
     };
     /** light */
     animal;
     teacher;
+    user;
 };
 _type_alias();
 const _readonly = () => {
-    const 여친 = {
+    /** 개념 */
+    const girlfriend = {
         name: `수정`
     };
-    const 테스트용변수 = {
+    const test = {
         size: 123,
         position: [1, 2, 3]
     };
+    /** light */
+    girlfriend;
+    test;
 };
 _readonly();
 const _type_alias_extend = () => {
