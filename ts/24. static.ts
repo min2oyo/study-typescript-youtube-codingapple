@@ -1,44 +1,48 @@
 const _static = () => {
 
   /** 개념 */
-
-  class User {
+  // user
+  class Parent {
     private static x = 10;  // 부모 class에 직접 부여됨 // 자식에게 안 물려 줌
     y = 20;
   }
 
-  const 자식 = new User();
-  console.log(자식);  // User { y: 20 }
+  const child = new Parent();
+
+  console.log(child);  // Parent { y: 20 }
+
   /**
    *  추가
    *  - 함수도 static 붙이기 가능
    *  - extends로 class를 복사할 경우 static 붙은 것들도 따라옴
    */
 
-
-
-  // 개념 2
-  class User2 {
+  // Ability
+  class Ability {
     static skill = `js`;
-    intro = User2.skill + `전문가입니다.`;
+    intro = Ability.skill + `전문가입니다.`;
   }
 
-  const 철수 = new User2();
-  console.log(철수);  // User2 { intro: 'js전문가입니다.' }
+  const cheolsu = new Ability();
+  console.log(cheolsu);  // Ability { intro: 'js전문가입니다.' }
 
-  User2.skill = `ts`;
-  const 철수2 = new User2();
-  console.log(철수2); // User2 { intro: 'ts전문가입니다.' }
+  Ability.skill = `ts`;
+  const younghee = new Ability();
+  console.log(younghee); // Ability { intro: 'ts전문가입니다.' }
 
 
 
   /** 실습 */
-  // 설명
-  class User3 {
+  // 1
+  class Number {
     private static x = 10;
     public static y = 20;
     protected z = 30;
   }
+  // console.log(Number.x); // errer
+  console.log(Number.y);  // 20
+  // console.log(Number.z); // errer
+
   /**
    *   x,y 속성의 특징
    *   1. 필드값은 원래는 모든 User의 자식들에게 물려주는 속성이지만
@@ -53,53 +57,52 @@ const _static = () => {
    */
 
   // 2
-  class User4 {
+  class Operator {
 
     private static x = 10;
     public static y = 20;
 
-    static addOne(파라미터: number) {
-      User4.x += 파라미터;
+    static addOne(a: number) {
+      return Operator.x += a;
     }
 
     static printX() {
-      console.log(User4.x);
+      console.log(Operator.x);
     }
 
   }
-  User4.addOne(3); //이렇게 하면 x가 3 더해져야함
-  User4.addOne(4); //이렇게 하면 x가 4 더해져야함
-  User4.printX();  //이렇게 하면 콘솔창에 x값이 출력되어야함
-
+  console.log(Operator.addOne(3));  // 13  // 이렇게 하면 x가 3 더해져야함
+  console.log(Operator.addOne(4));  // 17  // 이렇게 하면 x가 4 더해져야함
+  Operator.printX();                // 17  // 이렇게 하면 콘솔창에 x값이 출력되어야함
 
   // 3
   class Square {
 
-    constructor(public width: number, public height: number, public color: string) {
-    }
+    constructor(public width: number, public height: number, public color: string) { }
 
     draw() {
       const a = Math.random();
       const square = `
-      <div style="
-        position: relative;
-        top: ${a * 400}px;
-        left: ${a * 400}px;
-        width: ${this.width}px;
-        height: ${this.height}px;
-        background:${this.color}">
-      </div>
-    `;
+        <div style="
+          position: relative;
+          top: ${a * 400}px;
+          left: ${a * 400}px;
+          width: ${this.width}px;
+          height: ${this.height}px;
+          background:${this.color}">
+        </div>
+      `;
       document.body.insertAdjacentHTML('beforeend', square);
     }
 
   }
 
-  const 네모 = new Square(30, 30, 'red');
-  네모.draw();
-  네모.draw();
-  네모.draw();
-  네모.draw();
+  const square = new Square(30, 30, 'red');
+
+  square.draw();
+  square.draw();
+  square.draw();
+  square.draw();
 
 };
 

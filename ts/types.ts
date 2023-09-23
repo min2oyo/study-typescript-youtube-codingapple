@@ -1,24 +1,26 @@
 /** 전역 사용으로 export 생략 가능 */
 
-// 개념
+/** 개념 */
 type Name = string;
 type Age = (a: number) => number;
 interface 인터페이스 { }
 
-// 실습 1
+/** 실습 */
+// 1
 type Car = {
   wheel: number,
   model: string;
 };
+
 interface Bike {
   wheel: 2,
   model: string;
 }
 
-// 실습 2
+// 2
 type ObjFunction = (a?: object) => void;
 
-// 실습 3
+// namespace
 namespace GoodDog {
   export type Dog = string;
 }

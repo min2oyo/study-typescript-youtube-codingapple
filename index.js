@@ -205,6 +205,35 @@ const _narrowing = () => {
     }
     console.log(myFunc(123)); // 124
     console.log(myFunc(`123`)); // 1231
+    // 1. && 연산자
+    console.log(1 && null && 3); // null
+    console.log(undefined && '안녕' && 100); // undefined
+    const func1 = (a) => {
+        if (a && typeof a === `string`) {
+            return 1;
+        }
+    };
+    console.log(func1(`hi`)); // 1
+    const func2 = (animal) => {
+        if (`swim` in animal) {
+            return 1;
+        }
+    };
+    console.log(func2({ swim: `hi` })); // 1
+    // 3. instanceof 연산자 (object instanceof 부모 class)
+    const date = new Date();
+    const func3 = () => {
+        if (date instanceof Date) {
+            return 1;
+        }
+    };
+    console.log(func3()); // 1
+    const func4 = (a) => {
+        if (a.wheel === `4개`) {
+            return 1;
+        }
+    };
+    console.log(func4({ wheel: `4개`, color: `hi` })); // 1
     /** 실습 */
     // 숫자 변환
     function cleanFunc(param) {
@@ -490,86 +519,96 @@ const _class = () => {
     console.log(word.str); // [ 'kim', 'park' ]
 };
 _class();
+/** 중복선언
+    - interface: 가능
+    - type: 불가능
+ */
 const _interface = () => {
     /** 개념 */
-    const 학생 = { name: `kim` };
-    const 선생 = { name: `kim`, age: 20 };
-    const 상품 = { brand: 'Samsung', serialNumber: 1360, model: ['TV', 'phone'] };
-    const 장바구니 = [{ product: '청소기', price: 7000 }, { product: '삼다수', price: 800 }];
-    const basket = { product: '청소기', price: 7000, card: false };
-    const 오브젝트 = {
-        plus(a, b) {
-            return a + b;
+    const student = { name: `kim` };
+    const teacher = { name: `kim`, age: 20 };
+    const cat = { name: `kim`, age: 2 };
+    const dog = { name: `kim` };
+    const product = {
+        brand: 'Samsung',
+        serialNumber: 1360,
+        model: ['TV', 'phone']
+    };
+    const cart = [
+        {
+            product: '청소기',
+            price: 7000
         },
-        minus(a, b) {
-            return a - b;
+        {
+            product: '삼다수',
+            price: 800
+        }
+    ];
+    const basket = {
+        product: '청소기',
+        price: 7000,
+        card: false
+    };
+    const obj = {
+        plus(x, y) {
+            return x + y;
+        },
+        minus(x, y) {
+            return x - y;
         }
     };
+    /** light */
+    student;
+    teacher;
+    cat;
+    dog;
+    product;
+    cart;
+    basket;
+    obj;
 };
 _interface();
 const _rest_parameter = () => {
     /** 개념 */
     // rest parameter
-    function 함수(...a) {
+    const func = (...a) => {
         return a;
-    }
-    함수(1, 5, 3, 5, 6, 6);
+    };
+    func(1, 5, 3, 5, 6, 6);
     // spread operator
-    const arr = [3, 4, 5];
-    const arr2 = [1, 2, ...arr];
-    console.log(arr2);
-    // Destructuring
-    function 함수2({ student, age }) {
-        console.log(student, age);
-    }
-    함수2({ student: true, age: 20 });
+    const arr1 = [3, 4, 5];
+    const arr2 = [1, 2, ...arr1];
+    console.log(arr2); // [ 1, 2, 3, 4, 5 ]
     /** 실습 */
     // 최대값
-    function 최댓값(...x) {
+    const maxNum = (...a) => {
         let result = 0;
-        x.forEach((i) => {
-            if (result < i) {
+        a.forEach(i => {
+            if (result < i)
                 result = i;
-            }
         });
         return result;
-    }
-    console.log(최댓값(4, 6, 3, 2));
-    function 함수3({ user, comment, admin }) {
-        console.log(user, comment, admin);
-    }
-    함수3({ user: 'kim', comment: [3, 5, 4], admin: false });
-    function 함수4([a, b, c]) {
-        console.log(a, b, c);
-    }
-    함수4([40, 'wine', false]);
+    };
+    console.log(maxNum(4, 6, 3, 2)); // 6
 };
 _rest_parameter();
-const _narrowing2 = () => {
+const _destructuring = () => {
     /** 개념 */
-    // 1. && 연산자
-    console.log(1 && null && 3); // null
-    console.log(undefined && '안녕' && 100); // undefined
-    function 함수(a) {
-        if (a && typeof a === `string`) { }
-    }
-    function 함수2(animal) {
-        if (`swim` in animal) {
-            return 1;
-        }
-    }
-    // 3. instanceof 연산자 (object instanceof 부모 class)
-    const 날짜 = new Date();
-    if (날짜 instanceof Date) {
-        1;
-    }
-    function 함수3(x) {
-        if (x.wheel === `4개`) {
-            return 1;
-        }
-    }
+    // Destructuring
+    const func = ({ student, age }) => {
+        console.log(student, age); // true 20
+    };
+    func({ student: true, age: 20 });
+    const func1 = ({ user, comment, admin }) => {
+        console.log(user, comment, admin); // kim [ 3, 5, 4 ] false
+    };
+    func1({ user: 'kim', comment: [3, 5, 4], admin: false });
+    const func2 = ([a, b, c]) => {
+        console.log(a, b, c); // 40 wine false
+    };
+    func2([40, 'wine', false]);
 };
-_narrowing2();
+_destructuring();
 /**
  * 조건
  * 1. return 값이 없어야 함
@@ -582,18 +621,18 @@ _narrowing2();
  */
 const _never = () => {
     /** 개념 */
-    // error
-    function 함수() {
+    // 1. error
+    function func1() {
         throw new Error(); // 코드 실행 중단
     }
-    // 무한루프
-    function 함수2() {
+    // 2. 무한루프
+    function func2() {
         while (true) {
             console.log(1);
         }
     }
-    // 경로
-    function 함수3(parameter) {
+    // 3. 경로
+    function func3(parameter) {
         if (typeof parameter === `string`) {
             parameter; // type: string
         }
@@ -601,27 +640,34 @@ const _never = () => {
             parameter; // type: never
         }
     }
-    // 함수 표현식 (함수 선언문(function 함수4(){})는 void로 나옴)
-    const 함수4 = function () {
+    // 4. func 표현식 (func 선언문(function func4(){})는 void로 나옴)
+    const func4 = function () {
         throw new Error();
     };
+    /** light */
+    func1;
+    func2;
+    func3;
+    func4;
 };
 _never();
 /** 오리지널 자바스크립트 문법에서도 #이걸 속성옆에 붙이면 private 속성이 됩 */
 const _private = () => {
     /** 개념 */
+    // user
     class User {
         constructor(name) {
             this.familyName = `kim`;
-            this.name = name + this.familyName;
+            this.name = `${name} ${this.familyName}`;
         }
         changeSecret() {
             this.familyName = `park`;
         }
     }
-    const 유저1 = new User(`park`);
-    // 유저1.familyName;  // 사용 못 함
-    유저1.changeSecret(); // 사용 가능
+    const user = new User(`ria`);
+    // user.familyName;  // 사용 못 함
+    user.changeSecret(); // 사용 가능
+    console.log(user); // User { familyName: 'park', name: 'ria kim' }
     // 축약
     class Person {
         constructor(name) {
@@ -629,8 +675,8 @@ const _private = () => {
         }
         ;
     }
-    const 자식 = new Person(`kim`);
-    console.log(`자식`, 자식);
+    const child = new Person(`kim`);
+    console.log(`child`, child); // child Person { name: 'kim' }
 };
 _private();
 const _protected = () => {
@@ -645,46 +691,50 @@ const _protected = () => {
             this.x = 20; // 사용 가능
         }
     }
-    const 사람 = new NewUser();
-    console.log(사람); // NewUser { x: 10 }
+    const person = new NewUser();
+    console.log(person); // NewUser { x: 10 }
 };
 _protected();
 const _static = () => {
     /** 개념 */
-    class User {
+    // user
+    class Parent {
         constructor() {
             this.y = 20;
         }
     }
-    User.x = 10; // 부모 class에 직접 부여됨 // 자식에게 안 물려 줌
-    const 자식 = new User();
-    console.log(자식); // User { y: 20 }
+    Parent.x = 10; // 부모 class에 직접 부여됨 // 자식에게 안 물려 줌
+    const child = new Parent();
+    console.log(child); // Parent { y: 20 }
     /**
      *  추가
      *  - 함수도 static 붙이기 가능
      *  - extends로 class를 복사할 경우 static 붙은 것들도 따라옴
      */
-    // 개념 2
-    class User2 {
+    // Ability
+    class Ability {
         constructor() {
-            this.intro = User2.skill + `전문가입니다.`;
+            this.intro = Ability.skill + `전문가입니다.`;
         }
     }
-    User2.skill = `js`;
-    const 철수 = new User2();
-    console.log(철수); // User2 { intro: 'js전문가입니다.' }
-    User2.skill = `ts`;
-    const 철수2 = new User2();
-    console.log(철수2); // User2 { intro: 'ts전문가입니다.' }
+    Ability.skill = `js`;
+    const cheolsu = new Ability();
+    console.log(cheolsu); // Ability { intro: 'js전문가입니다.' }
+    Ability.skill = `ts`;
+    const younghee = new Ability();
+    console.log(younghee); // Ability { intro: 'ts전문가입니다.' }
     /** 실습 */
-    // 설명
-    class User3 {
+    // 1
+    class Number {
         constructor() {
             this.z = 30;
         }
     }
-    User3.x = 10;
-    User3.y = 20;
+    Number.x = 10;
+    Number.y = 20;
+    // console.log(Number.x); // errer
+    console.log(Number.y); // 20
+    // console.log(Number.z); // errer
     /**
      *   x,y 속성의 특징
      *   1. 필드값은 원래는 모든 User의 자식들에게 물려주는 속성이지만
@@ -698,19 +748,19 @@ const _static = () => {
      *      사용할 수 있습니다.
      */
     // 2
-    class User4 {
-        static addOne(파라미터) {
-            User4.x += 파라미터;
+    class Operator {
+        static addOne(a) {
+            return Operator.x += a;
         }
         static printX() {
-            console.log(User4.x);
+            console.log(Operator.x);
         }
     }
-    User4.x = 10;
-    User4.y = 20;
-    User4.addOne(3); //이렇게 하면 x가 3 더해져야함
-    User4.addOne(4); //이렇게 하면 x가 4 더해져야함
-    User4.printX(); //이렇게 하면 콘솔창에 x값이 출력되어야함
+    Operator.x = 10;
+    Operator.y = 20;
+    console.log(Operator.addOne(3)); // 13  // 이렇게 하면 x가 3 더해져야함
+    console.log(Operator.addOne(4)); // 17  // 이렇게 하면 x가 4 더해져야함
+    Operator.printX(); // 17  // 이렇게 하면 콘솔창에 x값이 출력되어야함
     // 3
     class Square {
         constructor(width, height, color) {
@@ -721,37 +771,46 @@ const _static = () => {
         draw() {
             const a = Math.random();
             const square = `
-      <div style="
-        position: relative;
-        top: ${a * 400}px;
-        left: ${a * 400}px;
-        width: ${this.width}px;
-        height: ${this.height}px;
-        background:${this.color}">
-      </div>
-    `;
+        <div style="
+          position: relative;
+          top: ${a * 400}px;
+          left: ${a * 400}px;
+          width: ${this.width}px;
+          height: ${this.height}px;
+          background:${this.color}">
+        </div>
+      `;
             document.body.insertAdjacentHTML('beforeend', square);
         }
     }
-    const 네모 = new Square(30, 30, 'red');
-    네모.draw();
-    네모.draw();
-    네모.draw();
-    네모.draw();
+    const square = new Square(30, 30, 'red');
+    square.draw();
+    square.draw();
+    square.draw();
+    square.draw();
 };
 _static();
+/** Run Code 실행이 안 됨 */
 // import { Age, Car, Name, ObjFunction } from "./types"; // 전역 사용으로 import 생략 가능
 const _import = () => {
     /** 개념 */
-    const name2 = `park`;
+    const name = `park`;
     const age = a => a + 10;
-    // 실습 1
-    const car = { wheel: 4, model: `Sonata` };
-    // 실습 2
-    const 함수 = function (a) {
+    /** 실습 */
+    // 1
+    const car = {
+        wheel: 4,
+        model: `Sonata`
+    };
+    // 2
+    const func = a => {
         console.log(a);
     };
-    함수({ abc: '안뇽' });
+    func({ abc: `hi` });
+    /** light */
+    name;
+    age;
+    car;
 };
 _import();
 const _generic = () => {

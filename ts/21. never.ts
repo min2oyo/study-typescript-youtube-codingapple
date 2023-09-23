@@ -12,21 +12,20 @@
 const _never = () => {
 
   /** 개념 */
-
-  // error
-  function 함수(): never {
+  // 1. error
+  function func1(): never {
     throw new Error();  // 코드 실행 중단
   }
 
-  // 무한루프
-  function 함수2(): never {
+  // 2. 무한루프
+  function func2(): never {
     while (true) {
       console.log(1);
     }
   }
 
-  // 경로
-  function 함수3(parameter: string) {
+  // 3. 경로
+  function func3(parameter: string) {
     if (typeof parameter === `string`) {
       parameter;  // type: string
     } else {
@@ -34,10 +33,15 @@ const _never = () => {
     }
   }
 
-  // 함수 표현식 (함수 선언문(function 함수4(){})는 void로 나옴)
-  const 함수4 = function () { // type: never
+  // 4. func 표현식 (func 선언문(function func4(){})는 void로 나옴)
+  const func4 = function () { // type: never
     throw new Error();
   };
+
+
+
+  /** light */
+  func1; func2; func3; func4;
 
 };
 

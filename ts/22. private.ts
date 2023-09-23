@@ -3,14 +3,14 @@
 const _private = () => {
 
   /** 개념 */
-
+  // user
   class User {
 
-    public name;  // 모든 자식들이 이용 가능  // 생략 가능
+    public name;  // 모든 child들이 이용 가능  // 생략 가능
     private familyName = `kim`;
 
     constructor(name: string) {
-      this.name = name + this.familyName;
+      this.name = `${name} ${this.familyName}`;
     }
 
     changeSecret() {
@@ -19,9 +19,12 @@ const _private = () => {
 
   }
 
-  const 유저1 = new User(`park`);
-  // 유저1.familyName;  // 사용 못 함
-  유저1.changeSecret(); // 사용 가능
+  const user = new User(`ria`);
+
+  // user.familyName;  // 사용 못 함
+  user.changeSecret(); // 사용 가능
+
+  console.log(user);  // User { familyName: 'park', name: 'ria kim' }
 
 
   // 축약
@@ -29,8 +32,8 @@ const _private = () => {
     constructor(public name: string) { };
   }
 
-  const 자식 = new Person(`kim`);
-  console.log(`자식`, 자식);
+  const child = new Person(`kim`);
+  console.log(`child`, child);  // child Person { name: 'kim' }
 
 };
 

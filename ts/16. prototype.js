@@ -9,6 +9,7 @@ function machine() {
 machine.prototype.name = `kim`;
 
 const nunu = new machine();
+
 console.log(nunu.name); // kim
 /**object에서 자료 뽑을 때 일어나는 일 (prototype chain)
  * 1. 직접 자료를 가지고 있으면 그거 출력
