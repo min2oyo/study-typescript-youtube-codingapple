@@ -28,11 +28,11 @@ const _object_index_signatures = () => {
 
   /** 실습 */
   // 1
-  type Car2 = {
+  type Car = {
     [key: string]: number | string;
   };
 
-  const obj: Car2 = {
+  const obj: Car = {
     model: 'k5',
     brand: 'kia',
     price: 6000,
@@ -61,7 +61,7 @@ const _object_index_signatures = () => {
 
 
   /** light */
-  user;
+  user; obj; css; obj2;
 
 };
 
