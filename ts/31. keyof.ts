@@ -2,7 +2,10 @@ const _keyof = () => {
 
   /** 개념 */
   // key 조회
-  const obj = { name: `kim`, age: 20 };
+  const obj = {
+    name: `kim`,
+    age: 20,
+  };
 
   console.log(Object.keys(obj));  // [ 'name', 'age' ]
 
@@ -69,8 +72,6 @@ const _keyof = () => {
 
   type NewBus2 = TypeChanger3<Bus, boolean>;
   type NewBus3 = TypeChanger3<Bus, string[]>;
-
-
 
   /** light */
   a; a2; a3; a4; obj2;

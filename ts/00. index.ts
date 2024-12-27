@@ -3,7 +3,7 @@ const _index = () => {
   /** Primitive Types */
 
   // Varable
-  const varable: string = `kim`; // string, number, boolean, bigint, null, undefined,[], {} 등
+  const varable: string = `kim`; // string, number, boolean, bigint, null, undefined, [], {} 등
 
   // Array
   const array: string[] = [`kim`, `park`];

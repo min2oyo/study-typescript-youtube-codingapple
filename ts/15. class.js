@@ -3,12 +3,12 @@
 // 1단계
 const nunu = {
   x: `consume`,
-  y: `snowball`
+  y: `snowball`,
 };
 
 const garen = {
   x: `strike`,
-  y: `courage`
+  y: `courage`,
 };
 
 // 2단계

@@ -58,8 +58,6 @@ const _object_index_signatures = () => {
     }
   };
 
-
-
   /** light */
   user; obj; css; obj2;
 

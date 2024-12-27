@@ -13,7 +13,7 @@ type Car = {
 };
 
 interface Bike {
-  wheel: 2,
+  wheel: 2;
   model: string;
 }
 

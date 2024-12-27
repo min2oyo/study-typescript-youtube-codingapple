@@ -7,13 +7,11 @@ const _import = () => {
   const name: Name = `park`;
   const age: Age = a => a + 10;
 
-
-
   /** 실습 */
   // 1
   const car: Car = {
     wheel: 4,
-    model: `Sonata`
+    model: `Sonata`,
   };
 
   // 2
@@ -22,8 +20,6 @@ const _import = () => {
   };
 
   func({ abc: `hi` });
-
-
 
   /** light */
   name; age; car;

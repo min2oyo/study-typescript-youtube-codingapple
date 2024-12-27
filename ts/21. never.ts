@@ -38,8 +38,6 @@ const _never = () => {
     throw new Error();
   };
 
-
-
   /** light */
   func1; func2; func3; func4;
 

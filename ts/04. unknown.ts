@@ -17,7 +17,6 @@ const _unknown = () => {
   const age: unknown = 1;
   // age - 1;  // error // 숫자 타입이여야 숫자처럼 연산해 줌
 
-
   /** light */
   age;
 

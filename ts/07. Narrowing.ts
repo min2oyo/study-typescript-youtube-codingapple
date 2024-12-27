@@ -1,6 +1,7 @@
 const _narrowing = () => {
 
   /** 개념 */
+  // 예시
   // Narrowing 판정 문법: typeof 변수 | 속성명 in 오브젝트자료 | 인스턴스 instanceof 부모
   function myFunc(x: number | string) {
     if (typeof x === `number`) return x + 1;
@@ -12,7 +13,7 @@ const _narrowing = () => {
 
   // 1. && 연산자
   console.log(1 && null && 3);  // null
-  console.log(undefined && '안녕' && 100);  // undefined
+  // console.log(undefined && '안녕' && 100);  // undefined
 
   const func1 = (a: string | undefined) => {
     if (a && typeof a === `string`) {
@@ -64,8 +65,6 @@ const _narrowing = () => {
 
   console.log(func4({ wheel: `4개`, color: `hi` }));  // 1
 
-
-
   /** 실습 */
   // 숫자 변환
   function cleanFunc(param: (number | string)[]) {
@@ -73,7 +72,7 @@ const _narrowing = () => {
     const cleaned: number[] = [];
 
     param.forEach((item) => {
-      const condition = typeof item === 'string';
+      const condition = typeof item === `string`;
       cleaned.push(condition ? parseFloat(item) : item);
     });
 
@@ -96,10 +95,9 @@ const _narrowing = () => {
     }
   }
   console.log(makeFunc(cheolsu));   // math
-  console.log(makeFunc(younghee));  // art
+  console.log(makeFunc(younghee));  // english
   console.log(makeFunc(minsu));     // korean
   // console.log(makeFunc({ hello: 'hi' }));  // type error
-
 
   /** light */
   cheolsu; younghee; minsu;

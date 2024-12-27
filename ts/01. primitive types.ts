@@ -11,7 +11,6 @@ const _primitive_types = () => {
   const furniture: string[] = [`kim`, `park`];
   const members: { membr1: string, member2: string; } = { membr1: `kim`, member2: `park` };
 
-
   /** light */
   name; age; isMarried; home; money; furniture; members;
 

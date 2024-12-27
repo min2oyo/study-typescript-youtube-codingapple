@@ -34,15 +34,13 @@ const _generic = () => {
   const e = func3<string[]>([`100`]);
 
   console.log(d); // 3
-  console.log(e); // 2
+  console.log(e); // 1
 
   // class
   class Hi<T> { }
 
   // type
   type Age<T> = T;
-
-
 
   /** 실습 */
   // 갯수 구하기
@@ -59,7 +57,7 @@ const _generic = () => {
     age: number;
   }
 
-  const data = '{"name" : "dog", "age" : 1 }';
+  const data = `{"name" : "dog", "age" : 1 }`;
 
   const func5 = <T>(data: string): T => {
     return JSON.parse(data);

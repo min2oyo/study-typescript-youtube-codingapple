@@ -11,7 +11,6 @@ const _readonly = () => {
   };
   // girlfriend.name = `유라`; // error
 
-
   /** 실습 */
 
   type MyType = {
@@ -24,7 +23,6 @@ const _readonly = () => {
     size: 123,
     position: [1, 2, 3]
   };
-
 
   /** light */
   girlfriend; test;

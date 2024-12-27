@@ -15,12 +15,18 @@ const _type_alias_extend = () => {
 
   const position: NewType = { x: 10, y: 20 };
 
-
   /** 실습 */
 
   // User
-  type User = { name: string, email?: string, phone: number; };
-  type Adult = { adult: boolean; };
+  type User = {
+    name: string;
+    email?: string;
+    phone: number;
+  };
+
+  type Adult = {
+    adult: boolean;
+  };
 
   type NewUser = User & Adult;
 
@@ -29,7 +35,6 @@ const _type_alias_extend = () => {
     adult: false,
     phone: 1234
   };
-
 
   /** light */
   const person: Person = ``; person; position; member;

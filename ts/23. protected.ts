@@ -12,6 +12,7 @@ const _protected = () => {
   }
 
   const person = new NewUser();
+
   console.log(person);  // NewUser { x: 10 }
 
 };

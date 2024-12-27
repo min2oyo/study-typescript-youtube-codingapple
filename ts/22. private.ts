@@ -26,13 +26,13 @@ const _private = () => {
 
   console.log(user);  // User { familyName: 'park', name: 'ria kim' }
 
-
   // 축약
   class Person {
     constructor(public name: string) { };
   }
 
   const child = new Person(`kim`);
+
   console.log(`child`, child);  // child Person { name: 'kim' }
 
 };

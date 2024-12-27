@@ -21,7 +21,6 @@ const _assertion = () => {
 
   myFucn(123);  // [ 123 ]
 
-
   /** 실습 */
 
   // 타입을 강제로 부여하는 기계 (Assertttion의 유용한 쓰임)

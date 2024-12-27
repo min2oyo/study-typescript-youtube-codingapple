@@ -24,13 +24,14 @@ const _static = () => {
   }
 
   const cheolsu = new Ability();
+
   console.log(cheolsu);  // Ability { intro: 'js전문가입니다.' }
 
   Ability.skill = `ts`;
+
   const younghee = new Ability();
+
   console.log(younghee); // Ability { intro: 'ts전문가입니다.' }
-
-
 
   /** 실습 */
   // 1
@@ -39,8 +40,11 @@ const _static = () => {
     public static y = 20;
     protected z = 30;
   }
+
   // console.log(Number.x); // errer
+
   console.log(Number.y);  // 20
+
   // console.log(Number.z); // errer
 
   /**
@@ -71,14 +75,21 @@ const _static = () => {
     }
 
   }
-  console.log(Operator.addOne(3));  // 13  // 이렇게 하면 x가 3 더해져야함
-  console.log(Operator.addOne(4));  // 17  // 이렇게 하면 x가 4 더해져야함
-  Operator.printX();                // 17  // 이렇게 하면 콘솔창에 x값이 출력되어야함
+
+  console.log(Operator.addOne(3));  // 13  // 이렇게 하면 x가 3 더해져야 함
+
+  console.log(Operator.addOne(4));  // 17  // 이렇게 하면 x가 4 더해져야 함
+
+  Operator.printX();                // 17  // 이렇게 하면 콘솔창에 x값이 출력되어야 함
 
   // 3
   class Square {
 
-    constructor(public width: number, public height: number, public color: string) { }
+    constructor(
+      public width: number,
+      public height: number,
+      public color: string
+    ) { }
 
     draw() {
       const a = Math.random();

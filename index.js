@@ -2,7 +2,7 @@
 const _index = () => {
     /** Primitive Types */
     // Varable
-    const varable = `kim`; // string, number, boolean, bigint, null, undefined,[], {} 등
+    const varable = `kim`; // string, number, boolean, bigint, null, undefined, [], {} 등
     // Array
     const array = [`kim`, `park`];
     // Object
@@ -24,6 +24,7 @@ const _index = () => {
     const john2 = { name: `kim`, age: `123` };
     // Class
     class User {
+        name;
         constructor(name) {
             this.name = name;
         }
@@ -187,6 +188,7 @@ const _undefined = () => {
     const square = {
         width: 100
     };
+    console.log(square); // { width: 100 }
     /** light */
     numVoid();
     square;
@@ -194,6 +196,7 @@ const _undefined = () => {
 _undefined();
 const _narrowing = () => {
     /** 개념 */
+    // 예시
     // Narrowing 판정 문법: typeof 변수 | 속성명 in 오브젝트자료 | 인스턴스 instanceof 부모
     function myFunc(x) {
         if (typeof x === `number`)
@@ -207,7 +210,7 @@ const _narrowing = () => {
     console.log(myFunc(`123`)); // 1231
     // 1. && 연산자
     console.log(1 && null && 3); // null
-    console.log(undefined && '안녕' && 100); // undefined
+    // console.log(undefined && '안녕' && 100);  // undefined
     const func1 = (a) => {
         if (a && typeof a === `string`) {
             return 1;
@@ -239,7 +242,7 @@ const _narrowing = () => {
     function cleanFunc(param) {
         const cleaned = [];
         param.forEach((item) => {
-            const condition = typeof item === 'string';
+            const condition = typeof item === `string`;
             cleaned.push(condition ? parseFloat(item) : item);
         });
         return cleaned;
@@ -261,7 +264,7 @@ const _narrowing = () => {
         }
     }
     console.log(makeFunc(cheolsu)); // math
-    console.log(makeFunc(younghee)); // art
+    console.log(makeFunc(younghee)); // english
     console.log(makeFunc(minsu)); // korean
     // console.log(makeFunc({ hello: 'hi' }));  // type error
     /** light */
@@ -298,7 +301,10 @@ _assertion();
 const _type_alias = () => {
     /** 개념 */
     const animal = 123;
-    const teacher = { name: `kim`, age: 20 };
+    const teacher = {
+        name: `kim`,
+        age: 20,
+    };
     const user = {
         name: 'kim',
         phone: 123,
@@ -430,7 +436,7 @@ const subject3 = document.querySelector(`#title`);
 subject3.innerHTML += ` 반가워요3`;
 // 4. optional chaining
 const subject4 = document.querySelector(`#title`);
-if ((subject4 === null || subject4 === void 0 ? void 0 : subject4.innerHTML) != undefined) {
+if (subject4?.innerHTML != undefined) {
     subject4.innerHTML += ` 반가워요4`;
 }
 // 5. strict mode off in tsconfig.json
@@ -451,7 +457,7 @@ if (link instanceof HTMLAnchorElement) {
  */
 // eventListener
 const button = document.querySelector(`button`);
-button === null || button === void 0 ? void 0 : button.addEventListener(`click`, () => {
+button?.addEventListener(`click`, () => {
     alert(`안녕`);
 });
 // img
@@ -469,8 +475,10 @@ links.forEach((x) => {
 const _class = () => {
     /** 개념 */
     class Person {
+        data = 0;
+        name;
+        age;
         constructor(name, age = 20) {
-            this.data = 0;
             this.name = name;
             this.age = age;
         }
@@ -486,6 +494,8 @@ const _class = () => {
     /** 실습 */
     // car
     class Car {
+        model;
+        price;
         constructor(x, y) {
             this.model = x;
             this.price = y;
@@ -499,6 +509,8 @@ const _class = () => {
     console.log(car.tax()); // 300
     //  class Word
     class Word {
+        num;
+        str;
         constructor(...param) {
             const numbers = [];
             const strings = [];
@@ -550,12 +562,8 @@ const _interface = () => {
         card: false
     };
     const obj = {
-        plus(x, y) {
-            return x + y;
-        },
-        minus(x, y) {
-            return x - y;
-        }
+        plus(x, y) { return x + y; },
+        minus(x, y) { return x - y; }
     };
     /** light */
     student;
@@ -574,7 +582,7 @@ const _rest_parameter = () => {
     const func = (...a) => {
         return a;
     };
-    func(1, 5, 3, 5, 6, 6);
+    console.log(func(1, 5, 3, 5, 6, 6)); // [ 1, 5, 3, 5, 6, 6 ]
     // spread operator
     const arr1 = [3, 4, 5];
     const arr2 = [1, 2, ...arr1];
@@ -584,8 +592,9 @@ const _rest_parameter = () => {
     const maxNum = (...a) => {
         let result = 0;
         a.forEach(i => {
-            if (result < i)
+            if (result < i) {
                 result = i;
+            }
         });
         return result;
     };
@@ -593,20 +602,19 @@ const _rest_parameter = () => {
 };
 _rest_parameter();
 const _destructuring = () => {
-    /** 개념 */
-    // Destructuring
     const func = ({ student, age }) => {
         console.log(student, age); // true 20
     };
     func({ student: true, age: 20 });
+    ;
     const func1 = ({ user, comment, admin }) => {
-        console.log(user, comment, admin); // kim [ 3, 5, 4 ] false
+        console.log(user, comment, admin);
     };
-    func1({ user: 'kim', comment: [3, 5, 4], admin: false });
+    func1({ user: 'kim', comment: [3, 5, 4], admin: false }); // kim [ 3, 5, 4 ] false
     const func2 = ([a, b, c]) => {
-        console.log(a, b, c); // 40 wine false
+        console.log(a, b, c);
     };
-    func2([40, 'wine', false]);
+    func2([40, 'wine', false]); // 40 wine false
 };
 _destructuring();
 /**
@@ -656,8 +664,9 @@ const _private = () => {
     /** 개념 */
     // user
     class User {
+        name; // 모든 child들이 이용 가능  // 생략 가능
+        familyName = `kim`;
         constructor(name) {
-            this.familyName = `kim`;
             this.name = `${name} ${this.familyName}`;
         }
         changeSecret() {
@@ -670,6 +679,7 @@ const _private = () => {
     console.log(user); // User { familyName: 'park', name: 'ria kim' }
     // 축약
     class Person {
+        name;
         constructor(name) {
             this.name = name;
         }
@@ -682,9 +692,7 @@ _private();
 const _protected = () => {
     /** 개념 */
     class User {
-        constructor() {
-            this.x = 10; // private 기능에서 extends된 class에서도 사용 가능
-        }
+        x = 10; // private 기능에서 extends된 class에서도 사용 가능
     }
     class NewUser extends User {
         doThis() {
@@ -699,11 +707,9 @@ const _static = () => {
     /** 개념 */
     // user
     class Parent {
-        constructor() {
-            this.y = 20;
-        }
+        static x = 10; // 부모 class에 직접 부여됨 // 자식에게 안 물려 줌
+        y = 20;
     }
-    Parent.x = 10; // 부모 class에 직접 부여됨 // 자식에게 안 물려 줌
     const child = new Parent();
     console.log(child); // Parent { y: 20 }
     /**
@@ -713,11 +719,9 @@ const _static = () => {
      */
     // Ability
     class Ability {
-        constructor() {
-            this.intro = Ability.skill + `전문가입니다.`;
-        }
+        static skill = `js`;
+        intro = Ability.skill + `전문가입니다.`;
     }
-    Ability.skill = `js`;
     const cheolsu = new Ability();
     console.log(cheolsu); // Ability { intro: 'js전문가입니다.' }
     Ability.skill = `ts`;
@@ -726,12 +730,10 @@ const _static = () => {
     /** 실습 */
     // 1
     class Number {
-        constructor() {
-            this.z = 30;
-        }
+        static x = 10;
+        static y = 20;
+        z = 30;
     }
-    Number.x = 10;
-    Number.y = 20;
     // console.log(Number.x); // errer
     console.log(Number.y); // 20
     // console.log(Number.z); // errer
@@ -749,6 +751,8 @@ const _static = () => {
      */
     // 2
     class Operator {
+        static x = 10;
+        static y = 20;
         static addOne(a) {
             return Operator.x += a;
         }
@@ -756,13 +760,14 @@ const _static = () => {
             console.log(Operator.x);
         }
     }
-    Operator.x = 10;
-    Operator.y = 20;
-    console.log(Operator.addOne(3)); // 13  // 이렇게 하면 x가 3 더해져야함
-    console.log(Operator.addOne(4)); // 17  // 이렇게 하면 x가 4 더해져야함
-    Operator.printX(); // 17  // 이렇게 하면 콘솔창에 x값이 출력되어야함
+    console.log(Operator.addOne(3)); // 13  // 이렇게 하면 x가 3 더해져야 함
+    console.log(Operator.addOne(4)); // 17  // 이렇게 하면 x가 4 더해져야 함
+    Operator.printX(); // 17  // 이렇게 하면 콘솔창에 x값이 출력되어야 함
     // 3
     class Square {
+        width;
+        height;
+        color;
         constructor(width, height, color) {
             this.width = width;
             this.height = height;
@@ -800,7 +805,7 @@ const _import = () => {
     // 1
     const car = {
         wheel: 4,
-        model: `Sonata`
+        model: `Sonata`,
     };
     // 2
     const func = a => {
@@ -835,7 +840,7 @@ const _generic = () => {
     const d = func3(`100`);
     const e = func3([`100`]);
     console.log(d); // 3
-    console.log(e); // 2
+    console.log(e); // 1
     // class
     class Hi {
     }
@@ -846,13 +851,14 @@ const _generic = () => {
     };
     func4('hello'); // 5
     func4(['kim', 'park']); // 2
-    const data = '{"name" : "dog", "age" : 1 }';
+    const data = `{"name" : "dog", "age" : 1 }`;
     const func5 = (data) => {
         return JSON.parse(data);
     };
     console.log(func5(data)); // { name: 'dog', age: 1 }
     // class
     class Person {
+        name;
         constructor(a) {
             this.name = a;
         }
@@ -909,10 +915,10 @@ const _declare = () => {
 };
 _declare;
 const _implements = () => {
-    /** 개념 */
     class Car {
+        model;
+        price = 1000;
         constructor(a) {
-            this.price = 1000;
             this.model = a;
         }
     }
@@ -921,7 +927,6 @@ const _implements = () => {
 };
 _implements();
 const _object_index_signatures = () => {
-    /** 개념 */
     const user = {
         name: `kim`,
         age: 20,
@@ -952,13 +957,18 @@ const _object_index_signatures = () => {
             }
         }
     };
+    /** light */
+    user;
+    obj;
+    css;
+    obj2;
 };
 _object_index_signatures();
 const _keyof = () => {
     /** 개념 */
     // key 조회
     const obj = { name: `kim`, age: 20 };
-    console.log(Object.keys(obj));
+    console.log(Object.keys(obj)); // [ 'name', 'age' ]
     const a = `name`;
     const a2 = `name`;
     const a3 = `name2`;
@@ -968,16 +978,28 @@ const _keyof = () => {
         model: 'kia',
         price: '300',
     };
+    /** light */
+    a;
+    a2;
+    a3;
+    a4;
+    obj2;
 };
 _keyof();
 const _infer = () => {
-    /** 개념 */
     let a; // string
     let a2; // unknown
     let age1; // string
     let age2; // any
     let age3; // string
     let age4; // unknown
+    /** light */
+    a = ``;
+    a2;
+    age1 = ``;
+    age2;
+    age3 = ``;
+    age4;
 };
 _infer();
 /** 전역 사용으로 export 생략 가능 */

@@ -78,14 +78,9 @@ const _interface = () => {
   }
 
   const obj: MathObj = {
-    plus(x, y) {
-      return x + y;
-    },
-    minus(x, y) {
-      return x - y;
-    }
+    plus(x, y) { return x + y; },
+    minus(x, y) { return x - y; }
   };
-
 
   /** light */
   student; teacher; cat; dog; product; cart; basket; obj;

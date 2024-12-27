@@ -12,7 +12,6 @@ const _function = () => {
     1 + x;
   }
 
-
   /** 실습 */
 
   // 이름 출력
@@ -45,7 +44,6 @@ const _function = () => {
     마지막으로 string이 아니라 '상' '중' '하' 라는 글자만 입력할 수 있게 더욱 엄격한 타입지정도 가능한데
     그건 Literal type 시간에 알아봅시다.
    */
-
 
   /** light */
   numNum; numVoid;

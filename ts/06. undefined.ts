@@ -7,7 +7,6 @@ const _undefined = () => {
     x;
   };
 
-
   /** 실습 */
 
   // object
@@ -20,6 +19,7 @@ const _undefined = () => {
     width: 100
   };
 
+  console.log(square);  // { width: 100 }
 
   /** light */
   numVoid(); square;

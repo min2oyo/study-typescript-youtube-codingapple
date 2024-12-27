@@ -2,7 +2,7 @@ const _tuple_type = () => {
 
   /** 개념 */
   // 변수
-  const bark: [string, boolean?, number?] = [`dog`, true];  // ?는 뒤에서 부터 채움
+  const bark: [string, boolean?, number?] = [`dog`, true];  // ?는 뒤에서부터 입력함
 
   // 함수
   const func = (...x: [number, string]) => {
@@ -15,8 +15,6 @@ const _tuple_type = () => {
   const arr1 = [1, 2, 3];
   const arr2: [number, number, ...number[]] = [4, 5, ...arr1];
   console.log(arr2);  // [ 4, 5, 1, 2, 3 ]
-
-
 
   /** 실습 */
   // 1

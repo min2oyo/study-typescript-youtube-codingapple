@@ -11,7 +11,6 @@ const _function_type = () => {
 
   console.log(func(1, 2));  // 3
 
-
   /** 실습 */
 
   // object
@@ -61,7 +60,6 @@ const _function_type = () => {
   };
 
   console.log(makeFunc(`010-1111-2222`, cutZero, removeDash));  // 1011112222
-
 
   /** light */
   member;

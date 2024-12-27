@@ -36,7 +36,6 @@ const _union_type = () => {
   //   friend: ['Lee', 'Phil'];
   // }
 
-
   /** light */
   number; numbers; object; what = ``; luna;
 

@@ -25,8 +25,6 @@ const _infer = () => {
   type Person3<T> = T extends (() => infer R) ? R : unknown;
   type a3 = Person3<() => void>;
 
-
-
   /** 실습 */
   // 타입 파라미터로
   type Age2<T> = T extends [string, ...any] ? T[0] : unknown;
@@ -37,8 +35,6 @@ const _infer = () => {
   type GetType<T> = T extends (x: infer R) => any ? R : any;
   type a2 = GetType<(x: number) => void>;  // number
   type a4 = GetType<(x: string) => void>;  // string
-
-
 
   /** light */
   a = ``; a2; age1 = ``; age2; age3 = ``; age4;
